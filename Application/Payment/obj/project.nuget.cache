@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "GU4rYvWh64brDDf94pnAfcoj8JHlVUzSRi5EHygZrNrhiYOEnJjWVSGp0xltw68ezZorqB/3pfo6I97qU9/ywA==",
+  "dgSpecHash": "A2TqanRuhOPK0h5DpG70uJFX6FxsIoF608WFzvdDUCG1aB4gxVLrQZAGDmOrVxo36qog8Z51/j5/Yka0t4ET3Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ricar\\Documents\\Sagas\\Application\\Payment\\Payment.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\ricar\\Documents\\Sagas\\Application\\Payment\\Application.Payment.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ricar\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\ricar\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

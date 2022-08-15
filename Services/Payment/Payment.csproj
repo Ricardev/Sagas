@@ -7,9 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
     <PackageReference Include="Ocelot.Provider.Eureka" Version="18.0.0" />
     <PackageReference Include="Steeltoe.Discovery.Eureka" Version="3.2.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\Payment\Domain.Payment.csproj" />
   </ItemGroup>
 
 </Project>

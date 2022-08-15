@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "D9Od3xdXwS513jnfUA4epfrVIwnoUprVYXayiKzZ77sqFAD5/KXz4KO9uqdrIuoHBmIsTiC/QZHpJ5LSpik0vA==",
+  "dgSpecHash": "6HpjG7dTsYQX4p561OA6W0aYWfcsbXa4NO+DRkPpVMoUsR0CfJ2fnDeb2X7AuU6DNiFvM9RxxUUkAqODNZlzww==",
   "success": true,
   "projectFilePath": "C:\\Users\\ricar\\Documents\\Sagas\\Services\\User\\User.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ricar\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\ricar\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\ricar\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\10.0.1\\mediatr.extensions.microsoft.dependencyinjection.10.0.1.nupkg.sha512",
     "C:\\Users\\ricar\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\ricar\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\ricar\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\ricar\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\ricar\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",

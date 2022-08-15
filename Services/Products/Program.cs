@@ -1,3 +1,5 @@
+using MediatR;
+using Products.Command;
 using Steeltoe.Discovery.Client;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +10,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddMediatR(typeof(ProductCommandHandler));
 builder.Services.AddDiscoveryClient(builder.Configuration);
 builder.WebHost.UseUrls("http://localhost:9002");
 

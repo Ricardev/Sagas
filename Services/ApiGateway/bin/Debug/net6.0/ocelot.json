@@ -1,0 +1,17 @@
+﻿{
+  "Routes": [],
+  "GlobalConfiguration": {
+    "BaseUrl": null,
+    "UseServiceDiscovery": true,
+    "DownstreamScheme": "http",
+    "ServiceDiscoveryProvider": {
+      "Scheme": "https",
+      "Host": "localhost",
+      "Port": 8761,
+      "Type": "Eureka"
+    },
+    "LoadBalancerOptions": {
+      "Type": "RoundRobin"
+    }
+  }
+}

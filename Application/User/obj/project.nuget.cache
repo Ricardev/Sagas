@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "ljbNtPozXFI5ZPY2oXL0gI27Q6wCx3WGRLaCHEubJsWo6yzS7monISOr2HRHDCGYInLZIvO4Te8m9E30b6+8+A==",
+  "dgSpecHash": "S8hFL4CNqJoDLLFglU3eTTw9Z3Uk6uO6bmwSRE1rQnmZZGGTvD2ERIAEPSPDYfW52zKaYq1eEu/6If7PbVBXdg==",
   "success": true,
   "projectFilePath": "C:\\Users\\ricar\\Documents\\Sagas\\Application\\User\\Application.User.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ricar\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\ricar\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
-    "C:\\Users\\ricar\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512"
+    "C:\\Users\\ricar\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\ricar\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

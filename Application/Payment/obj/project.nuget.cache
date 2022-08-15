@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "A2TqanRuhOPK0h5DpG70uJFX6FxsIoF608WFzvdDUCG1aB4gxVLrQZAGDmOrVxo36qog8Z51/j5/Yka0t4ET3Q==",
+  "dgSpecHash": "KoiC/6ACHmfhuU/EFGc4XxDC7pLy4u5//HCkHECm4liRIRiz9A1aBL1I4lwaAVi3i/LdnFhHn7ZLXjl1A2kRqA==",
   "success": true,
   "projectFilePath": "C:\\Users\\ricar\\Documents\\Sagas\\Application\\Payment\\Application.Payment.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ricar\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\ricar\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
-    "C:\\Users\\ricar\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512"
+    "C:\\Users\\ricar\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\ricar\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

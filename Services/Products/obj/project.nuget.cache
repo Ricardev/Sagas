@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "nWLEf5RnWBcsFsgY/oGS8lemHo8z40B2CQlCsRidl6xp0NnOSi6tmuBlfXVCphWDCeDn8K/CoAbkgD1AYz0VxA==",
+  "dgSpecHash": "y9nW/UGqFDvmHgmxcwzn7pkl/bbjeoo52AyTsIIRcap7+GQM3Z28Wgu8Lko8VjTumQJBTAlzRz8Ie5v8BO19ug==",
   "success": true,
   "projectFilePath": "C:\\Users\\ricar\\Documents\\Sagas\\Services\\Products\\Products.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ricar\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\ricar\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
     "C:\\Users\\ricar\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\ricar\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\10.0.1\\mediatr.extensions.microsoft.dependencyinjection.10.0.1.nupkg.sha512",
+    "C:\\Users\\ricar\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\ricar\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\ricar\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.0\\microsoft.extensions.caching.abstractions.3.1.0.nupkg.sha512",
     "C:\\Users\\ricar\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0\\microsoft.extensions.configuration.6.0.0.nupkg.sha512",

@@ -2,7 +2,7 @@
 
 namespace Domain.Order.Command;
 
-public class CreateOrderCommand : INotification
+public class CreateOrderCommand : IRequest<int>
 {
     public int UserId { get; }
     public int ProductId { get; }

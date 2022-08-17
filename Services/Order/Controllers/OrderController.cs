@@ -16,9 +16,9 @@ public class OrderController : ControllerBase
     
     [Route("MakeOrder")]
     [HttpPost]
-    public IActionResult MakeOrder([FromBody] MakeOrderModel orderModel)
+    public async Task<IActionResult> MakeOrder([FromBody] MakeOrderModel orderModel)
     {
-        _application.MakeOrder(orderModel);
+        await _application.MakeOrder(orderModel);
         return Ok();
     }
 }

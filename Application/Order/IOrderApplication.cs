@@ -4,5 +4,5 @@ namespace Application.Order;
 
 public interface IOrderApplication
 {
-    bool MakeOrder(MakeOrderModel orderModel);
+    Task MakeOrder(MakeOrderModel orderModel);
 }

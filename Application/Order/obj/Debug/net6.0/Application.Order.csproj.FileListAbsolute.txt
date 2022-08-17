@@ -1,0 +1,17 @@
+C:\Users\ricar\Documents\Sagas\Application\Order\bin\Debug\net6.0\Application.Order.deps.json
+C:\Users\ricar\Documents\Sagas\Application\Order\bin\Debug\net6.0\Application.Order.dll
+C:\Users\ricar\Documents\Sagas\Application\Order\bin\Debug\net6.0\Application.Order.pdb
+C:\Users\ricar\Documents\Sagas\Application\Order\bin\Debug\net6.0\Domain.Order.dll
+C:\Users\ricar\Documents\Sagas\Application\Order\bin\Debug\net6.0\MessageBroker.dll
+C:\Users\ricar\Documents\Sagas\Application\Order\bin\Debug\net6.0\Domain.Order.pdb
+C:\Users\ricar\Documents\Sagas\Application\Order\bin\Debug\net6.0\MessageBroker.pdb
+C:\Users\ricar\Documents\Sagas\Application\Order\obj\Debug\net6.0\Application.Order.csproj.AssemblyReference.cache
+C:\Users\ricar\Documents\Sagas\Application\Order\obj\Debug\net6.0\Application.Order.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ricar\Documents\Sagas\Application\Order\obj\Debug\net6.0\Application.Order.AssemblyInfoInputs.cache
+C:\Users\ricar\Documents\Sagas\Application\Order\obj\Debug\net6.0\Application.Order.AssemblyInfo.cs
+C:\Users\ricar\Documents\Sagas\Application\Order\obj\Debug\net6.0\Application.Order.csproj.CoreCompileInputs.cache
+C:\Users\ricar\Documents\Sagas\Application\Order\obj\Debug\net6.0\Application.Order.csproj.CopyComplete
+C:\Users\ricar\Documents\Sagas\Application\Order\obj\Debug\net6.0\Application.Order.dll
+C:\Users\ricar\Documents\Sagas\Application\Order\obj\Debug\net6.0\refint\Application.Order.dll
+C:\Users\ricar\Documents\Sagas\Application\Order\obj\Debug\net6.0\Application.Order.pdb
+C:\Users\ricar\Documents\Sagas\Application\Order\obj\Debug\net6.0\ref\Application.Order.dll

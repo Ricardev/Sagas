@@ -11,8 +11,8 @@ public class OrderRepository : IOrderRepository
     {
         _context = context;
     }
-    public void CreateOrder(Domain.Order.Order order)
+    public Domain.Order.Order CreateOrder(Domain.Order.Order order)
     { 
-        _context.Add(order);
+        return _context.Add(order).Entity;
     }
 }

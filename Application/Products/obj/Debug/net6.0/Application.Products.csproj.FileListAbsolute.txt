@@ -1,0 +1,17 @@
+C:\Users\ricar\Documents\Sagas\Application\Products\bin\Debug\net6.0\Application.Products.deps.json
+C:\Users\ricar\Documents\Sagas\Application\Products\bin\Debug\net6.0\Application.Products.dll
+C:\Users\ricar\Documents\Sagas\Application\Products\bin\Debug\net6.0\Application.Products.pdb
+C:\Users\ricar\Documents\Sagas\Application\Products\bin\Debug\net6.0\Domain.Products.dll
+C:\Users\ricar\Documents\Sagas\Application\Products\bin\Debug\net6.0\MessageBroker.dll
+C:\Users\ricar\Documents\Sagas\Application\Products\bin\Debug\net6.0\Domain.Products.pdb
+C:\Users\ricar\Documents\Sagas\Application\Products\bin\Debug\net6.0\MessageBroker.pdb
+C:\Users\ricar\Documents\Sagas\Application\Products\obj\Debug\net6.0\Application.Products.csproj.AssemblyReference.cache
+C:\Users\ricar\Documents\Sagas\Application\Products\obj\Debug\net6.0\Application.Products.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ricar\Documents\Sagas\Application\Products\obj\Debug\net6.0\Application.Products.AssemblyInfoInputs.cache
+C:\Users\ricar\Documents\Sagas\Application\Products\obj\Debug\net6.0\Application.Products.AssemblyInfo.cs
+C:\Users\ricar\Documents\Sagas\Application\Products\obj\Debug\net6.0\Application.Products.csproj.CoreCompileInputs.cache
+C:\Users\ricar\Documents\Sagas\Application\Products\obj\Debug\net6.0\Application.Products.csproj.CopyComplete
+C:\Users\ricar\Documents\Sagas\Application\Products\obj\Debug\net6.0\Application.Products.dll
+C:\Users\ricar\Documents\Sagas\Application\Products\obj\Debug\net6.0\refint\Application.Products.dll
+C:\Users\ricar\Documents\Sagas\Application\Products\obj\Debug\net6.0\Application.Products.pdb
+C:\Users\ricar\Documents\Sagas\Application\Products\obj\Debug\net6.0\ref\Application.Products.dll

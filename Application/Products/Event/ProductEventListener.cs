@@ -1,5 +1,4 @@
-﻿using Application.Products.Models;
-using MessageBroker;
+﻿using MessageBroker;
 using MessageBroker.EventModels;
 using Microsoft.Extensions.Hosting;
 
@@ -35,6 +34,4 @@ public class ProductEventListener : BackgroundService
         var payment = _messageBroker.ReceiveMessage<PaymentEventModel>(EventQueue.RollbackProductQueue);
         if(payment != null) _productApplication.RollbackOrderProduct();
     }
-    
-    
 }

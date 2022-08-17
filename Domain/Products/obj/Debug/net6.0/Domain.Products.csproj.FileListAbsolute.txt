@@ -1,0 +1,12 @@
+C:\Users\ricar\Documents\Sagas\Domain\Products\bin\Debug\net6.0\Domain.Products.deps.json
+C:\Users\ricar\Documents\Sagas\Domain\Products\bin\Debug\net6.0\Domain.Products.dll
+C:\Users\ricar\Documents\Sagas\Domain\Products\bin\Debug\net6.0\Domain.Products.pdb
+C:\Users\ricar\Documents\Sagas\Domain\Products\obj\Debug\net6.0\Domain.Products.csproj.AssemblyReference.cache
+C:\Users\ricar\Documents\Sagas\Domain\Products\obj\Debug\net6.0\Domain.Products.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ricar\Documents\Sagas\Domain\Products\obj\Debug\net6.0\Domain.Products.AssemblyInfoInputs.cache
+C:\Users\ricar\Documents\Sagas\Domain\Products\obj\Debug\net6.0\Domain.Products.AssemblyInfo.cs
+C:\Users\ricar\Documents\Sagas\Domain\Products\obj\Debug\net6.0\Domain.Products.csproj.CoreCompileInputs.cache
+C:\Users\ricar\Documents\Sagas\Domain\Products\obj\Debug\net6.0\Domain.Products.dll
+C:\Users\ricar\Documents\Sagas\Domain\Products\obj\Debug\net6.0\refint\Domain.Products.dll
+C:\Users\ricar\Documents\Sagas\Domain\Products\obj\Debug\net6.0\Domain.Products.pdb
+C:\Users\ricar\Documents\Sagas\Domain\Products\obj\Debug\net6.0\ref\Domain.Products.dll

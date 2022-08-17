@@ -1,0 +1,12 @@
+C:\Users\ricar\Documents\Sagas\Application\User\bin\Debug\net6.0\Application.User.deps.json
+C:\Users\ricar\Documents\Sagas\Application\User\bin\Debug\net6.0\Application.User.dll
+C:\Users\ricar\Documents\Sagas\Application\User\bin\Debug\net6.0\Application.User.pdb
+C:\Users\ricar\Documents\Sagas\Application\User\obj\Debug\net6.0\Application.User.csproj.AssemblyReference.cache
+C:\Users\ricar\Documents\Sagas\Application\User\obj\Debug\net6.0\Application.User.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ricar\Documents\Sagas\Application\User\obj\Debug\net6.0\Application.User.AssemblyInfoInputs.cache
+C:\Users\ricar\Documents\Sagas\Application\User\obj\Debug\net6.0\Application.User.AssemblyInfo.cs
+C:\Users\ricar\Documents\Sagas\Application\User\obj\Debug\net6.0\Application.User.csproj.CoreCompileInputs.cache
+C:\Users\ricar\Documents\Sagas\Application\User\obj\Debug\net6.0\Application.User.dll
+C:\Users\ricar\Documents\Sagas\Application\User\obj\Debug\net6.0\refint\Application.User.dll
+C:\Users\ricar\Documents\Sagas\Application\User\obj\Debug\net6.0\Application.User.pdb
+C:\Users\ricar\Documents\Sagas\Application\User\obj\Debug\net6.0\ref\Application.User.dll

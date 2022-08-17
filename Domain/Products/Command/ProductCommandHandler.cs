@@ -1,8 +1,9 @@
-﻿using MediatR;
+﻿using Domain.Products.Builders;
+using MediatR;
 
 namespace Domain.Products.Command;
 
-public class ProductCommandHandler : IRequestHandler<CreateProductCommand>, IRequestHandler<OrderProductCommand>, IRequestHandler<EditProductCommand>, IRequestHandler<DeleteProductCommand>
+public class ProductCommandHandler : IRequestHandler<CreateProductCommand>, IRequestHandler<OrderProductCommand, bool>
 {
     private readonly IProductRepository _repository;
 
@@ -13,23 +14,31 @@ public class ProductCommandHandler : IRequestHandler<CreateProductCommand>, IReq
     
     public Task<Unit> Handle(CreateProductCommand request, CancellationToken cancellationToken)
     {
-        _repository.CreateProduct();
+        
+        var product = new ProductBuilder()
+            .SetProductValue(request.Value).SetProductQuantity(request.StockQuantity).Build();
+        _repository.CreateProduct(product);
+        
+        return Task.FromResult(Unit.Value);
     }
 
-    public Task<Unit> Handle(OrderProductCommand request, CancellationToken cancellationToken)
+    public Task<bool> Handle(OrderProductCommand request, CancellationToken cancellationToken)
     {
-        var product = _repository.GetProduct(request.Id);
-        product.ReserveProduct();
-        _repository.OrderProduct(product);
-    }
+        try
+        {
+            var product = _repository.GetProduct(request.Id);
+            
+            if (product == null)
+                return Task.FromResult(false);
+            
+            product.ReserveProduct();
+            _repository.OrderProduct(product);
+            return Task.FromResult(true);
+        }
+        catch
+        {
+            return Task.FromResult(false);
+        }
 
-    public Task<Unit> Handle(EditProductCommand request, CancellationToken cancellationToken)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<Unit> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
-    {
-        throw new NotImplementedException();
     }
 }

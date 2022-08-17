@@ -1,24 +1,33 @@
-﻿using Domain.Payment.Command;
+﻿using Domain.Payment.Builders;
 using MediatR;
 
-namespace Payment.Command;
+namespace Domain.Payment.Command;
 
-public class PaymentCommandHandler : IRequestHandler<MakePaymentCommand>, 
-                                        IRequestHandler<CreatePaymentCommand>, 
-                                        IRequestHandler<CancelPaymentCommand>
+public class PaymentCommandHandler : IRequestHandler<CreatePaymentCommand, bool>
 {
-    public Task<Unit> Handle(MakePaymentCommand request, CancellationToken cancellationToken)
-    {
-        throw new NotImplementedException();
-    }
+    private readonly IPaymentRepository _repository;
 
-    public Task<Unit> Handle(CreatePaymentCommand request, CancellationToken cancellationToken)
+    public PaymentCommandHandler(  IPaymentRepository repository)
     {
-        throw new NotImplementedException();
+        _repository = repository;
     }
-
-    public Task<Unit> Handle(CancelPaymentCommand request, CancellationToken cancellationToken)
+    
+    public Task<bool> Handle(CreatePaymentCommand request, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var payment = new PaymentBuilder()
+                .SetPaymentValue(request.PaymentValue)
+                .SetPaymentOrderId(request.OrderId)
+                .Build();
+        
+            _repository.CreatePayment(payment);
+            return Task.FromResult(true);
+        }
+        catch
+        {
+            return Task.FromResult(false);
+        }
+
     }
 }

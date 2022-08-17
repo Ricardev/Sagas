@@ -1,7 +1,9 @@
 using Application.Payment.Event;
+using Domain.Payment;
+using Domain.Payment.Command;
+using Infra.Payment;
 using MediatR;
 using MessageBroker;
-using Payment.Command;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +19,7 @@ builder.Services.AddScoped<IMessageBroker, MessageBroker.MessageBroker>(x =>
     var channel = MessageBrokerConfig.ChannelConfig();
     return new MessageBroker.MessageBroker(channel);
 });
+builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 builder.Services.AddHostedService<PaymentEventListener>();
 builder.WebHost.UseUrls("http://localhost:9001");
 var app = builder.Build();

@@ -10,6 +10,7 @@ public static class PaymentAutoMapperConfig
         {
             configuration.AddProfile(new PaymentDomainToViewModel());
             configuration.AddProfile(new PaymentViewModelToDomain());
+            configuration.AddProfile(new EventToDomain());
         });
     }
 }

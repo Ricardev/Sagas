@@ -9,14 +9,9 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0-preview.7.22375.6" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Microsoft.Extensions.Hosting.Abstractions">
-      <HintPath>..\..\..\..\.nuget\packages\microsoft.extensions.hosting.abstractions\7.0.0-preview.7.22375.6\lib\net6.0\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
+  
   <ItemGroup>
     <ProjectReference Include="..\..\Domain\Products\Domain.Products.csproj" />
     <ProjectReference Include="..\..\MessageBroker\MessageBroker.csproj" />

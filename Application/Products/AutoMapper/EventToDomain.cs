@@ -8,6 +8,6 @@ public class EventToDomain : Profile
 {
     public EventToDomain()
     {
-        CreateMap<OrderEventModel, OrderProductCommand>();
+        CreateMap<CreateOrderEventModel, OrderProductCommand>();
     }
 }

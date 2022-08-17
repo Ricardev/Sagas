@@ -1,0 +1,15 @@
+C:\Users\ricar\Documents\Sagas\Infra\Payment\bin\Debug\net6.0\Infra.Payment.deps.json
+C:\Users\ricar\Documents\Sagas\Infra\Payment\bin\Debug\net6.0\Infra.Payment.dll
+C:\Users\ricar\Documents\Sagas\Infra\Payment\bin\Debug\net6.0\Infra.Payment.pdb
+C:\Users\ricar\Documents\Sagas\Infra\Payment\bin\Debug\net6.0\Domain.Payment.dll
+C:\Users\ricar\Documents\Sagas\Infra\Payment\bin\Debug\net6.0\Domain.Payment.pdb
+C:\Users\ricar\Documents\Sagas\Infra\Payment\obj\Debug\net6.0\Infra.Payment.csproj.AssemblyReference.cache
+C:\Users\ricar\Documents\Sagas\Infra\Payment\obj\Debug\net6.0\Infra.Payment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ricar\Documents\Sagas\Infra\Payment\obj\Debug\net6.0\Infra.Payment.AssemblyInfoInputs.cache
+C:\Users\ricar\Documents\Sagas\Infra\Payment\obj\Debug\net6.0\Infra.Payment.AssemblyInfo.cs
+C:\Users\ricar\Documents\Sagas\Infra\Payment\obj\Debug\net6.0\Infra.Payment.csproj.CoreCompileInputs.cache
+C:\Users\ricar\Documents\Sagas\Infra\Payment\obj\Debug\net6.0\Infra.Payment.csproj.CopyComplete
+C:\Users\ricar\Documents\Sagas\Infra\Payment\obj\Debug\net6.0\Infra.Payment.dll
+C:\Users\ricar\Documents\Sagas\Infra\Payment\obj\Debug\net6.0\refint\Infra.Payment.dll
+C:\Users\ricar\Documents\Sagas\Infra\Payment\obj\Debug\net6.0\Infra.Payment.pdb
+C:\Users\ricar\Documents\Sagas\Infra\Payment\obj\Debug\net6.0\ref\Infra.Payment.dll

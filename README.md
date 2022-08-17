@@ -13,6 +13,8 @@ Principais features, frameworks e servicos utilizados nesse projeto:
   - Orquestracao de Containers com Docker
   - Autenticacao
 
+# Explicacao Inicial
+
 O seguinte projeto tem a finalidade de exemplificar o padrao Sagas Choreography Architecture em um ambiente de micro servicos. Porem, para deixar o projeto mais robusto e um pouco mais complexo, assemelhando-se a realidade, implementei algumas outras ferramentas para mostrar como elas se comunicam.
 
 O Saga Architecture e um padrao arquitetural que possui a finalidade de otimizar a comunicacao entre os micro servicos a fim de manter a integridade do banco de dados.
@@ -20,7 +22,7 @@ Como assim?
 Cada micro servico tem o seu proprio banco de dados, e existe algumas operacoes que necessitam de transacoes entre micro servicos, cada um dando um commit no seu proprio banco. 
 Por exemplo ( e justamente o exemplo que implementamos nesse repositorio ): Quando uma usuario faz uma compra na internet, ele emite um pedido de compra ( Servico de Pedidos ), essa compra precisa saber se todos os produtos naquele carrinho ou pedido estao disponiveis para venda ( Servico de Produtos ) e por ultimo emitir uma nota de pagamento ( Servico de Pagamento ). Ocorre que todos esses micro servicos fazem transacoes no seu proprio banco de dados e o problema e: e se ocorrer alguma falha em qualquer uma dessas transacoes? Os outros dados irao persistir no seu banco ate que voce tome uma medida contra isso. E pra isso serve a arquitetura Saga, para que caso ocorra uma falha em qualquer uma dessas transacoes, todas as transacoes anteriores possam dar um rollback.
 
-E como nos implementamos isso?
+# E como nos implementamos isso?
 
 Ponto primordial: os micro servicos precisam se comunicar, para que quando uma transacao ocorra com sucesso, ele passe essa informacao para o proximo micro servico e quando ela falhe, os anteriores deem rollback. Para isso ha duas abordagens para pensarmos:
   - Requisicao HTTP.

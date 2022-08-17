@@ -1,4 +1,4 @@
-﻿namespace Sagas;
+﻿namespace Domain.Order;
 
 public class Order
 {

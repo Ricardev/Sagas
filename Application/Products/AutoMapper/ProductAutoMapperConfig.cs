@@ -10,6 +10,7 @@ public static class ProductAutoMapperConfig
         {
             configuration.AddProfile(new ProductDomainToViewModel());
             configuration.AddProfile(new ProductViewModelToDomain());
+            configuration.AddProfile(new EventToDomain());
         });
     }
 }

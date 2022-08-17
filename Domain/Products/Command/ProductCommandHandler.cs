@@ -1,18 +1,26 @@
-﻿using Domain.Products.Command;
-using MediatR;
+﻿using MediatR;
 
-namespace Products.Command;
+namespace Domain.Products.Command;
 
 public class ProductCommandHandler : IRequestHandler<CreateProductCommand>, IRequestHandler<OrderProductCommand>, IRequestHandler<EditProductCommand>, IRequestHandler<DeleteProductCommand>
 {
+    private readonly IProductRepository _repository;
+
+    public ProductCommandHandler(IProductRepository repository)
+    {
+        _repository = repository;
+    }
+    
     public Task<Unit> Handle(CreateProductCommand request, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        _repository.CreateProduct();
     }
 
     public Task<Unit> Handle(OrderProductCommand request, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        var product = _repository.GetProduct(request.Id);
+        product.ReserveProduct();
+        _repository.OrderProduct(product);
     }
 
     public Task<Unit> Handle(EditProductCommand request, CancellationToken cancellationToken)

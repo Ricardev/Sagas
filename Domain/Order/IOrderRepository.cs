@@ -1,6 +1,6 @@
-﻿namespace Sagas;
+﻿namespace Domain.Order;
 
-public class IOrderRepository
+public interface IOrderRepository
 {
-    
+    void CreateOrder(Order order);
 }

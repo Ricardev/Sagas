@@ -1,5 +1,8 @@
+using Application.Products;
+using Application.Products.Event;
+using Domain.Products.Command;
 using MediatR;
-using Products.Command;
+using MessageBroker;
 using Steeltoe.Discovery.Client;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +14,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddMediatR(typeof(ProductCommandHandler));
+builder.Services.AddScoped<IProductApplication, ProductApplication>();
 builder.Services.AddDiscoveryClient(builder.Configuration);
+builder.Services.AddScoped<IMessageBroker, MessageBroker.MessageBroker>(x =>
+{
+    var channel = MessageBrokerConfig.ChannelConfig();
+    return new MessageBroker.MessageBroker(channel);
+});
+
+builder.Services.AddHostedService<ProductEventListener>();
 builder.WebHost.UseUrls("http://localhost:9002");
 
 var app = builder.Build();

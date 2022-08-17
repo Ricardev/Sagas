@@ -4,13 +4,13 @@ using Microsoft.Extensions.Configuration;
 
 namespace Infra.Products.Context;
 
-public class ProductsContext : DbContext
+public class ProductContext : DbContext
 {
 
     public DbSet<Product> Product;
 
-    public ProductsContext() {}
-    public ProductsContext(DbContextOptions options) : base(options) {}
+    public ProductContext() {}
+    public ProductContext(DbContextOptions options) : base(options) {}
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

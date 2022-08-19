@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "XRuLsuxaT1oiduAB/tOAXvUWrqzlQvPSPboL5eyDoWwzaCty7JV6AS2BPwy5q07YvrErfm260Aj/TFOvINRXEQ==",
+  "dgSpecHash": "9pEwgrSDZm2BBVmisGn2rJQxCA8Q2Nd1Iy/I4c9BjWo5Z+o8MEsJqA7DNym+op45x1gCsjUkbzGQLE6xnziN7Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\ricar\\Documents\\Sagas\\Services\\Products\\Products.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ricar\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\ricar\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\ricar\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
     "C:\\Users\\ricar\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\ricar\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\10.0.1\\mediatr.extensions.microsoft.dependencyinjection.10.0.1.nupkg.sha512",

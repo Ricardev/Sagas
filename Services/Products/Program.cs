@@ -1,4 +1,5 @@
 using Application.Products;
+using Application.Products.AutoMapper;
 using Application.Products.Event;
 using Domain.Products.Command;
 using MediatR;
@@ -21,7 +22,7 @@ builder.Services.AddScoped<IMessageBroker, MessageBroker.MessageBroker>(x =>
     var channel = MessageBrokerConfig.ChannelConfig();
     return new MessageBroker.MessageBroker(channel);
 });
-
+builder.Services.AddAutoMapper(typeof(ProductAutoMapperConfig));
 builder.Services.AddHostedService<ProductEventListener>();
 builder.WebHost.UseUrls("http://localhost:9002");
 

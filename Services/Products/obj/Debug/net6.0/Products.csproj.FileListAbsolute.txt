@@ -51,3 +51,4 @@ C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\MessageBroker.
 C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\Application.Products.pdb
 C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\Domain.Products.pdb
 C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\MessageBroker.pdb
+C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

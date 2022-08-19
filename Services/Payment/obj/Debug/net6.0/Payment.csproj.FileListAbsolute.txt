@@ -72,3 +72,4 @@ C:\Users\ricar\Documents\Sagas\Services\Payment\bin\Debug\net6.0\Application.Pay
 C:\Users\ricar\Documents\Sagas\Services\Payment\bin\Debug\net6.0\Domain.Payment.pdb
 C:\Users\ricar\Documents\Sagas\Services\Payment\bin\Debug\net6.0\Infra.Payment.pdb
 C:\Users\ricar\Documents\Sagas\Services\Payment\bin\Debug\net6.0\MessageBroker.pdb
+C:\Users\ricar\Documents\Sagas\Services\Payment\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

@@ -1,3 +1,6 @@
+using Application.Order;
+using Application.Order.AutoMapper;
+using Domain.Order;
 using Domain.Order.Command;
 using MediatR;
 using MessageBroker;
@@ -19,6 +22,9 @@ builder.Services.AddScoped<IMessageBroker, MessageBroker.MessageBroker>(x =>
     return messageBroker;
 });
 
+builder.Services.AddScoped<IOrderApplication, OrderApplication>();
+builder.Services.AddScoped<IOrderRepository, IOrderRepository>();
+builder.Services.AddAutoMapper(typeof(OrderAutoMapperConfig));
 
 
 var app = builder.Build();

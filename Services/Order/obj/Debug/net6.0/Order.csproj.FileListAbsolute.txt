@@ -38,3 +38,4 @@ C:\Users\ricar\Documents\Sagas\Services\Order\obj\Debug\net6.0\refint\Order.dll
 C:\Users\ricar\Documents\Sagas\Services\Order\obj\Debug\net6.0\Order.pdb
 C:\Users\ricar\Documents\Sagas\Services\Order\obj\Debug\net6.0\Order.genruntimeconfig.cache
 C:\Users\ricar\Documents\Sagas\Services\Order\obj\Debug\net6.0\ref\Order.dll
+C:\Users\ricar\Documents\Sagas\Services\Order\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

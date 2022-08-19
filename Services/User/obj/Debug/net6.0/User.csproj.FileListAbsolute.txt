@@ -35,3 +35,5 @@ C:\Users\ricar\Documents\Sagas\Services\User\obj\Debug\net6.0\refint\User.dll
 C:\Users\ricar\Documents\Sagas\Services\User\obj\Debug\net6.0\User.pdb
 C:\Users\ricar\Documents\Sagas\Services\User\obj\Debug\net6.0\User.genruntimeconfig.cache
 C:\Users\ricar\Documents\Sagas\Services\User\obj\Debug\net6.0\ref\User.dll
+C:\Users\ricar\Documents\Sagas\Services\User\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\ricar\Documents\Sagas\Services\User\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

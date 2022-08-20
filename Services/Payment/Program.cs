@@ -4,8 +4,11 @@ using Application.Payment.Event;
 using Domain.Payment;
 using Domain.Payment.Command;
 using Infra.Payment;
+using Infra.Payment.Context;
 using MediatR;
 using MessageBroker;
+using RabbitMQ.Client;
+using Steeltoe.Discovery.Client;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,13 +19,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddMediatR(typeof(PaymentCommandHandler));
-builder.Services.AddScoped<IMessageBroker, MessageBroker.MessageBroker>(x =>
+builder.Services.AddDiscoveryClient(builder.Configuration);
+
+builder.Services.AddSingleton<IMessageBroker, MessageBroker.MessageBroker>(x =>
 {
     var channel = MessageBrokerConfig.ChannelConfig();
+    channel.ExchangeDeclare("Payment Exchange", ExchangeType.Fanout, true);
+    channel.QueueDeclare(EventQueue.CreatePaymentQueue,true, false, false, null);
+    channel.QueueDeclare(EventQueue.RollbackPaymentQueue, true, false, false, null);
     return new MessageBroker.MessageBroker(channel);
 });
-builder.Services.AddScoped<IPaymentApplication, PaymentApplication>();
+builder.Services.AddSingleton<IPaymentApplication, PaymentApplication>();
 builder.Services.AddAutoMapper(typeof(PaymentAutoMapperConfig));
+builder.Services.AddScoped(x => new PaymentContext());
 builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 builder.Services.AddHostedService<PaymentEventListener>();
 builder.WebHost.UseUrls("http://localhost:9001");

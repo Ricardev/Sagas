@@ -9,11 +9,13 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="Steeltoe.Discovery.Eureka" Version="3.2.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Application\Order\Application.Order.csproj" />
+    <ProjectReference Include="..\..\Infra\Order\Infra.Order.csproj" />
     <ProjectReference Include="..\..\MessageBroker\MessageBroker.csproj" />
   </ItemGroup>
 

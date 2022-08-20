@@ -6,10 +6,9 @@ public static class MessageBrokerConfig
 {
     public static IModel ChannelConfig()
     {
-        var factory = new ConnectionFactory() { HostName = "localhost", Port = 5672};
-        var _connection = factory.CreateConnection();
-        var _channel = _connection.CreateModel();
-        _channel.ExchangeDeclare(exchange: "trigger", type: ExchangeType.Fanout);
-        return _channel;
+        var channel = new ConnectionFactory { Uri = new Uri("amqp://guest:guest@localhost:5672") }
+            .CreateConnection()
+            .CreateModel();
+        return channel;
     } 
 }

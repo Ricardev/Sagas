@@ -5,6 +5,8 @@ C:\Users\ricar\Documents\Sagas\Services\User\bin\Debug\net6.0\User.deps.json
 C:\Users\ricar\Documents\Sagas\Services\User\bin\Debug\net6.0\User.runtimeconfig.json
 C:\Users\ricar\Documents\Sagas\Services\User\bin\Debug\net6.0\User.dll
 C:\Users\ricar\Documents\Sagas\Services\User\bin\Debug\net6.0\User.pdb
+C:\Users\ricar\Documents\Sagas\Services\User\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\ricar\Documents\Sagas\Services\User\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\ricar\Documents\Sagas\Services\User\bin\Debug\net6.0\MediatR.dll
 C:\Users\ricar\Documents\Sagas\Services\User\bin\Debug\net6.0\MediatR.Contracts.dll
 C:\Users\ricar\Documents\Sagas\Services\User\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
@@ -35,5 +37,3 @@ C:\Users\ricar\Documents\Sagas\Services\User\obj\Debug\net6.0\refint\User.dll
 C:\Users\ricar\Documents\Sagas\Services\User\obj\Debug\net6.0\User.pdb
 C:\Users\ricar\Documents\Sagas\Services\User\obj\Debug\net6.0\User.genruntimeconfig.cache
 C:\Users\ricar\Documents\Sagas\Services\User\obj\Debug\net6.0\ref\User.dll
-C:\Users\ricar\Documents\Sagas\Services\User\bin\Debug\net6.0\AutoMapper.dll
-C:\Users\ricar\Documents\Sagas\Services\User\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

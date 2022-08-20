@@ -28,12 +28,8 @@ public class MessageBroker : IMessageBroker
     public T? ReceiveMessage<T>(string eventQueue)
     {
         T? commandEvent = default(T);
-        
-            _channel.QueueBind(queue: eventQueue,
-                exchange: "logs",
-                routingKey: "");
 
-            var consumer = new EventingBasicConsumer(_channel);
+        var consumer = new EventingBasicConsumer(_channel);
             
             consumer.Received += (model, ea) =>
             {

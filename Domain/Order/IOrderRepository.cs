@@ -1,6 +1,6 @@
 ﻿namespace Domain.Order;
 
-public interface IOrderRepository
+public interface IOrderRepository 
 {
     public Order CreateOrder(Order order);
 }

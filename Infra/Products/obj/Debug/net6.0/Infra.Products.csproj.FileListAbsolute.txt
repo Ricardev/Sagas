@@ -13,3 +13,6 @@ C:\Users\ricar\Documents\Sagas\Infra\Products\obj\Debug\net6.0\Infra.Products.dl
 C:\Users\ricar\Documents\Sagas\Infra\Products\obj\Debug\net6.0\refint\Infra.Products.dll
 C:\Users\ricar\Documents\Sagas\Infra\Products\obj\Debug\net6.0\Infra.Products.pdb
 C:\Users\ricar\Documents\Sagas\Infra\Products\obj\Debug\net6.0\ref\Infra.Products.dll
+C:\Users\ricar\Documents\Sagas\Infra\Products\bin\Debug\net6.0\appsettings.json
+C:\Users\ricar\Documents\Sagas\Infra\Products\bin\Debug\net6.0\Infra.Products.runtimeconfig.json
+C:\Users\ricar\Documents\Sagas\Infra\Products\obj\Debug\net6.0\Infra.Products.genruntimeconfig.cache

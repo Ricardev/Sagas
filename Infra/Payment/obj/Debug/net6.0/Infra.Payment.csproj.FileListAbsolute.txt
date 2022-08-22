@@ -13,3 +13,6 @@ C:\Users\ricar\Documents\Sagas\Infra\Payment\obj\Debug\net6.0\Infra.Payment.dll
 C:\Users\ricar\Documents\Sagas\Infra\Payment\obj\Debug\net6.0\refint\Infra.Payment.dll
 C:\Users\ricar\Documents\Sagas\Infra\Payment\obj\Debug\net6.0\Infra.Payment.pdb
 C:\Users\ricar\Documents\Sagas\Infra\Payment\obj\Debug\net6.0\ref\Infra.Payment.dll
+C:\Users\ricar\Documents\Sagas\Infra\Payment\bin\Debug\net6.0\appsettings.json
+C:\Users\ricar\Documents\Sagas\Infra\Payment\bin\Debug\net6.0\Infra.Payment.runtimeconfig.json
+C:\Users\ricar\Documents\Sagas\Infra\Payment\obj\Debug\net6.0\Infra.Payment.genruntimeconfig.cache

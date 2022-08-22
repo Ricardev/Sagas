@@ -15,3 +15,6 @@ C:\Users\ricar\Documents\Sagas\Infra\Order\obj\Debug\net6.0\Infra.Order.dll
 C:\Users\ricar\Documents\Sagas\Infra\Order\obj\Debug\net6.0\refint\Infra.Order.dll
 C:\Users\ricar\Documents\Sagas\Infra\Order\obj\Debug\net6.0\Infra.Order.pdb
 C:\Users\ricar\Documents\Sagas\Infra\Order\obj\Debug\net6.0\ref\Infra.Order.dll
+C:\Users\ricar\Documents\Sagas\Infra\Order\bin\Debug\net6.0\Infra.Order.runtimeconfig.json
+C:\Users\ricar\Documents\Sagas\Infra\Order\obj\Debug\net6.0\Infra.Order.genruntimeconfig.cache
+C:\Users\ricar\Documents\Sagas\Infra\Order\bin\Debug\net6.0\appsettings.json

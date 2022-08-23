@@ -7,6 +7,7 @@ public class Product
     public int Id { get; }
     public int Value { get; private set; }
     public int StockQuantity { get; private set; }
+    public string Name { get; private set; }
     
     public virtual ICollection<Order> Orders { get; private set; }
 
@@ -15,5 +16,6 @@ public class Product
 
     public void SetProductQuantity(int quantity) => StockQuantity = quantity;
     public void SetProductValue(int value) => Value = value;
-    
+    public void SetProductName(string name) => Name = name;
+
 }

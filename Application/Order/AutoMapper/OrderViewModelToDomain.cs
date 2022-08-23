@@ -8,6 +8,7 @@ public class OrderViewModelToDomain : Profile
 {
     public OrderViewModelToDomain()
     {
-        CreateMap<MakeOrderModel, CreateOrderCommand>();
+        CreateMap<MakeOrderModel, CreateOrderCommand>()
+            .ConstructUsing(c => new CreateOrderCommand(c.UserId, c.ProductId, c.Quantity));
     }
 }

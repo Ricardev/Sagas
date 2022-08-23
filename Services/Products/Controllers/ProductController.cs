@@ -17,6 +17,7 @@ public class ProductsController : ControllerBase
     [HttpGet]
     public IActionResult Get()
     {
-        return Ok();
+        var produtos =_application.ObterProdutos();
+        return Ok(produtos);
     }
 }

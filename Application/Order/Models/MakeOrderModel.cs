@@ -2,7 +2,7 @@
 
 public class MakeOrderModel
 {
-    public int UserId { get; }
-    public int ProductId { get; }
-    public int Quantity { get; }
+    public int UserId { get => 1; }
+    public int ProductId { get; set; }
+    public int Quantity { get; set; }
 }

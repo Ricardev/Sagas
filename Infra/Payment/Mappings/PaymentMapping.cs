@@ -11,6 +11,9 @@ public class PaymentMapping : IEntityTypeConfiguration<Domain.Payment.Payment>
             .HasColumnName("PaymentId");
 
         builder.HasKey(x => x.Id);
+
+        builder.Property(x => x.Id)
+            .ValueGeneratedOnAdd();
         
         builder.Property(x => x.PaymentValue)
             .HasColumnName("Payment_Value");

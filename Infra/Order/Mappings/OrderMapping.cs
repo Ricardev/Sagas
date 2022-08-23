@@ -9,11 +9,12 @@ public class OrderMapping : IEntityTypeConfiguration<Domain.Order.Order>
     {
         builder.Property(x => x.Id)
             .HasColumnName("OrderId");
-
         builder.HasKey(x => x.Id);
-
+        builder.Property(x => x.Id)
+            .ValueGeneratedOnAdd();
+        
         builder.Property(x => x.Quantity)
-            .HasColumnName("Ordered_Quantity");
+            .HasColumnName("Quantity");
         
         builder.HasOne(x => x.Product)
             .WithMany(x => x.Orders)
@@ -25,10 +26,10 @@ public class OrderMapping : IEntityTypeConfiguration<Domain.Order.Order>
         builder.HasOne(x => x.User)
             .WithMany(x => x.Orders)
             .HasForeignKey(x => x.UserId);
-
+        
         builder.Property(x => x.UserId)
             .HasColumnName("UserId");
         
-        builder.ToTable("OrderTable", schema: "Order");
+        builder.ToTable("Order", schema: "OrderSchema");
     }
 }

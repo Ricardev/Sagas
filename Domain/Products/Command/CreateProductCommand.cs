@@ -6,4 +6,5 @@ public class CreateProductCommand : IRequest
 {
     public int Value { get; private set; }
     public int StockQuantity { get; private set; }
+    public string Name { get; private set; }
 }

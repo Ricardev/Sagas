@@ -19,17 +19,18 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDiscoveryClient(builder.Configuration);
 
-builder.Services.AddScoped<IMessageBroker, MessageBroker.MessageBroker>(x =>
+builder.Services.AddSingleton<IMessageBroker, MessageBroker.MessageBroker>(x =>
 {
     var channel = MessageBrokerConfig.ChannelConfig(); 
     channel.ExchangeDeclare("Order Exchange", ExchangeType.Fanout,true);
     channel.QueueDeclare(EventQueue.ValidateProductQueue,true, false, false, null);
+    channel.QueueBind(queue: EventQueue.ValidateProductQueue, exchange:"Order Exchange", routingKey: "");
     return new MessageBroker.MessageBroker(channel);
 });
 
-builder.Services.AddScoped<IOrderApplication, OrderApplication>();
-builder.Services.AddScoped(x => new OrderContext());
-builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddSingleton<IOrderApplication, OrderApplication>();
+builder.Services.AddSingleton(x => new OrderContext());
+builder.Services.AddSingleton<IOrderRepository, OrderRepository>();
 builder.Services.AddAutoMapper(typeof(OrderAutoMapperConfig));
 builder.Services.AddMediatR(typeof(OrderCommandHandler));
 builder.WebHost.UseUrls("http://localhost:10000");

@@ -15,6 +15,12 @@ public class ProductBuilder
         return this;
     }
 
+    public ProductBuilder SetProductName(string name)
+    {
+        _product.SetProductName(name);
+        return this;
+    }
+
     public ProductBuilder SetProductQuantity(int quantity)
     {
         _product.SetProductQuantity(quantity);

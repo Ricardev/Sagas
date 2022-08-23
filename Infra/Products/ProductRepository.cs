@@ -17,6 +17,11 @@ public class ProductRepository : IProductRepository
         return _context.Set<Product>().FirstOrDefault(x => x.Id.Equals(id));
     }
 
+    public ICollection<Product> GetProducts()
+    {
+        return _context.Set<Product>().ToList();
+    }
+
     public void CreateProduct(Product product)
     {
         throw new NotImplementedException();

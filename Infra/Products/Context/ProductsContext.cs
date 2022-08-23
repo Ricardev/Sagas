@@ -1,4 +1,5 @@
 ﻿using Domain.Products;
+using Infra.Products.Mappings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -18,7 +19,14 @@ public class ProductContext : DbContext
             ConfigDatabase(optionsBuilder);
         base.OnConfiguring(optionsBuilder);
     }
-    
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfiguration(new ProductMapping());
+        modelBuilder.ApplyConfiguration(new OrderMapping());
+        base.OnModelCreating(modelBuilder);
+    }
+
     private void ConfigDatabase(DbContextOptionsBuilder optionsBuilder)
     { 
         IConfigurationRoot configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json", false, false).Build();

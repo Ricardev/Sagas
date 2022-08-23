@@ -16,7 +16,8 @@ namespace Infra.Products.Migrations
                 {
                     Value = table.Column<int>(nullable:false),
                     StockQuantity = table.Column<int>(nullable:false),
-                    ProductId = table.Column<int>(nullable:false)
+                    ProductId = table.Column<int>(nullable:false),
+                    ProductName = table.Column<string>(nullable:false)
                 }, 
                 constraints: table =>
                 {

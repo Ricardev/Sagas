@@ -14,6 +14,6 @@ public class UserMapping : IEntityTypeConfiguration<User>
             .WithOne(x => x.User)
             .HasForeignKey(x => x.Id);
 
-        builder.ToTable("UserTable", schema: "User");
+        builder.ToTable("User", schema: "UserSchema");
     }
 }

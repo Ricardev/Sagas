@@ -18,8 +18,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped( x=> new ProductContext());
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddSingleton( x=> new ProductContext());
+builder.Services.AddSingleton<IProductRepository, ProductRepository>();
 builder.Services.AddMediatR(typeof(ProductCommandHandler));
 builder.Services.AddSingleton<IProductApplication, ProductApplication>();
 builder.Services.AddDiscoveryClient(builder.Configuration);
@@ -29,6 +29,7 @@ builder.Services.AddSingleton<IMessageBroker, MessageBroker.MessageBroker>(x =>
     channel.ExchangeDeclare("Product Exchange", ExchangeType.Fanout, true);
     channel.QueueDeclare(EventQueue.ValidateProductQueue,true, false, false, null);
     channel.QueueDeclare(EventQueue.RollbackProductQueue, true, false, false, null);
+    channel.QueueBind(queue: EventQueue.ValidateProductQueue, exchange: "Product Exchange", routingKey: "");
     return new MessageBroker.MessageBroker(channel);
 });
 builder.Services.AddAutoMapper(typeof(ProductAutoMapperConfig));

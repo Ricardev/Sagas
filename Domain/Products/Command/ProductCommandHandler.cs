@@ -16,7 +16,10 @@ public class ProductCommandHandler : IRequestHandler<CreateProductCommand>, IReq
     {
         
         var product = new ProductBuilder()
-            .SetProductValue(request.Value).SetProductQuantity(request.StockQuantity).Build();
+            .SetProductValue(request.Value)
+            .SetProductName(request.Name)
+            .SetProductQuantity(request.StockQuantity)
+            .Build();
         _repository.CreateProduct(product);
         
         return Task.FromResult(Unit.Value);

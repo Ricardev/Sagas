@@ -16,6 +16,6 @@ public class ProductMapping : IEntityTypeConfiguration<Product>
             .WithOne(x => x.Product)
             .HasForeignKey(x => x.Id);
 
-        builder.ToTable("ProductTable", schema: "Product");
+        builder.ToTable("Product", schema: "ProductSchema");
     }
 }

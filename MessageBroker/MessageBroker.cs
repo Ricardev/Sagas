@@ -13,12 +13,11 @@ public class MessageBroker : IMessageBroker
     {
         _channel = channel;
     }
-    public void PublishMessage<T>(T command, string eventQueue)
+    public void PublishMessage<T>(T command, string eventQueue, string exchange)
     {
-        _channel.QueueDeclare(queue: eventQueue, durable:true, exclusive: false, autoDelete: false, arguments: null);
-            var message = JsonSerializer.Serialize(command);
+        var message = JsonSerializer.Serialize(command);
             var body = Encoding.UTF8.GetBytes(message);
-            _channel.BasicPublish(exchange: "logs",
+            _channel.BasicPublish(exchange: exchange,
                 routingKey: eventQueue,
                 basicProperties: null,
                 body: body);

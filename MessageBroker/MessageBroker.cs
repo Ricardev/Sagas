@@ -24,23 +24,21 @@ public class MessageBroker : IMessageBroker
             Console.WriteLine(" [x] Sent {0}", message);
     }
 
-    public T? ReceiveMessage<T>(string eventQueue)
+    public void ReceiveMessage<T>(string eventQueue, Action<T> appServiceCall)
     {
-        T? commandEvent = default(T);
-
         var consumer = new EventingBasicConsumer(_channel);
             
             consumer.Received += (model, ea) =>
             {
                 var body = ea.Body.ToArray();
                 var message = Encoding.UTF8.GetString(body);
-                commandEvent = JsonSerializer.Deserialize<T>(message);
+                T? commandEvent = JsonSerializer.Deserialize<T>(message);
+                if (commandEvent != null)
+                    appServiceCall(commandEvent);
             };
-            
+
             _channel.BasicConsume(queue: eventQueue,
                 autoAck: true,
                 consumer: consumer);
-
-            return commandEvent;
     }
 }

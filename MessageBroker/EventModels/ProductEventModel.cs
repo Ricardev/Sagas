@@ -1,6 +1,6 @@
 ﻿namespace MessageBroker.EventModels;
 
-public class ValidateProductEventModel
+public class CreatePaymentEventModel
 {
     public int OrderId { get; set; }
     public int ProductId { get; set; }

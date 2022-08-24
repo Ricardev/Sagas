@@ -16,13 +16,13 @@ public class PaymentApplication : IPaymentApplication
         _mapper = mapper;
     }
 
-    public void CreatePayment(ValidateProductEventModel validateProductEvent)
+    public void CreatePayment(CreatePaymentEventModel validateProductEvent)
     {
         var createPaymentCommand = _mapper.Map<CreatePaymentCommand>(validateProductEvent);
         _mediator.Publish(createPaymentCommand);
     }
 
-    public void RollbackCreatePayment()
+    public void RollbackCreatePayment(RollbackPaymentEventModel paymentEvent)
     {
         throw new NotImplementedException();
     }

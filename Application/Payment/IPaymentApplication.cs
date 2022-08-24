@@ -4,6 +4,6 @@ namespace Application.Payment;
 
 public interface IPaymentApplication
 {
-    public void CreatePayment(ValidateProductEventModel validateProductEvent);
-    public void RollbackCreatePayment();
+    public void CreatePayment(CreatePaymentEventModel validateProductEvent);
+    public void RollbackCreatePayment(RollbackPaymentEventModel paymentEvent);
 }

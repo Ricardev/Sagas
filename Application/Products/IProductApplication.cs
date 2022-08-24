@@ -6,7 +6,7 @@ namespace Application.Products;
 public interface IProductApplication
 {
     public void CreateProduct(ProductModel productModel);
-    public void OrderProduct(CreateOrderEventModel order);
-    public void RollbackOrderProduct();
+    public void OrderProduct(ReserveProductEventModel order);
+    public void RollbackOrderProduct(RollbackPaymentEventModel paymentEvent);
     public ICollection<ProductModel> ObterProdutos();
 }

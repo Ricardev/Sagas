@@ -1,13 +1,13 @@
 ﻿namespace MessageBroker.EventModels;
 
-public class CreateOrderEventModel
+public class ReserveProductEventModel
 {
     public int OrderId { get; }
     public int UserId { get; }
     public int ProductId { get; }
     public int Quantity { get; }
 
-    public CreateOrderEventModel(int orderId, int userId, int productId, int quantity)
+    public ReserveProductEventModel(int orderId, int userId, int productId, int quantity)
     {
         OrderId = orderId;
         UserId = userId;

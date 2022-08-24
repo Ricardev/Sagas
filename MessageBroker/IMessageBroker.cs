@@ -3,5 +3,5 @@
 public interface IMessageBroker
 {
     public void PublishMessage<T>(T command, string eventQueue, string exchange);
-    public T? ReceiveMessage<T>(string eventQueue);
+    public void ReceiveMessage<T>(string eventQueue, Action<T> appServiceCall);
 }

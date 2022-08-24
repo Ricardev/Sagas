@@ -18,20 +18,22 @@ public class ProductEventListener : BackgroundService
     
     protected override Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        ListenToValidateProductEvent();
-        ListenToRollbackProductEvent();
+        while (!stoppingToken.IsCancellationRequested)
+        {
+            ListenToValidateProductEvent();
+            ListenToRollbackProductEvent();
+        }
+
         return Task.CompletedTask;
     }
 
     private void ListenToValidateProductEvent()
     {
-        var order = _messageBroker.ReceiveMessage<CreateOrderEventModel>(EventQueue.ValidateProductQueue);
-        if(order != null) _productApplication.OrderProduct(order);
+        _messageBroker.ReceiveMessage<ReserveProductEventModel>(EventQueue.ValidateProductQueue, _productApplication.OrderProduct);
     }
 
     private void ListenToRollbackProductEvent()
     {
-        var payment = _messageBroker.ReceiveMessage<PaymentEventModel>(EventQueue.RollbackProductQueue);
-        if(payment != null) _productApplication.RollbackOrderProduct();
+         _messageBroker.ReceiveMessage<RollbackPaymentEventModel>(EventQueue.RollbackProductQueue, _productApplication.RollbackOrderProduct);
     }
 }

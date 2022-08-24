@@ -29,22 +29,22 @@ public class ProductApplication : IProductApplication
         _mediator.Send(productCommand);
     }
 
-    public void OrderProduct(CreateOrderEventModel order)
+    public void OrderProduct(ReserveProductEventModel order)
     {
-        var createProductCommand = _mapper.Map<OrderProductCommand>(order);
+        var orderProductCommand = _mapper.Map<OrderProductCommand>(order);
         
-        _mediator.Publish(createProductCommand);
+        _mediator.Publish(orderProductCommand);
         
-        var validateProductEventModel = new ValidateProductEventModel()
+        var createPaymentEventModel = new CreatePaymentEventModel()
         {
             OrderId = order.OrderId,
             ProductId = order.ProductId
         };
         
-        _messageBroker.PublishMessage(validateProductEventModel, EventQueue.CreatePaymentQueue, "Product Exchange");
+        _messageBroker.PublishMessage(createPaymentEventModel, EventQueue.CreatePaymentQueue, "Product Exchange");
     }
 
-    public void RollbackOrderProduct()
+    public void RollbackOrderProduct(RollbackPaymentEventModel paymentEvent)
     {
         throw new NotImplementedException();
     }

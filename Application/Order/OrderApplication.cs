@@ -27,7 +27,7 @@ public class OrderApplication : IOrderApplication
     {
         var makeOrderCommand = _mapper.Map<CreateOrderCommand>(orderModel);
         var orderId = await _mediator.Send(makeOrderCommand);
-        var createdOrderEvent = new CreateOrderEventModel(orderId, orderModel.UserId, orderModel.ProductId, orderModel.Quantity);
+        var createdOrderEvent = new ReserveProductEventModel(orderId, orderModel.UserId, orderModel.ProductId, orderModel.Quantity);
         _messageBroker.PublishMessage(createdOrderEvent,eventQueue: EventQueue.ValidateProductQueue, "Order Exchange");
     }
 }

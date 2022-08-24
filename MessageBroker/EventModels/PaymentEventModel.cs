@@ -1,6 +1,6 @@
 ﻿namespace MessageBroker.EventModels;
 
-public class PaymentEventModel
+public class RollbackPaymentEventModel
 {
     public int Id { get; }
     public int PaymentValue { get; }

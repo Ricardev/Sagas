@@ -24,6 +24,25 @@ namespace Infra.Products.Migrations
                     table.PrimaryKey("PK_Product", x => x.ProductId);
                 }, 
                 schema: "ProductSchema");
+
+            migrationBuilder.InsertData(table: "Product", schema: "ProductSchema",
+                columns: new[]
+                {
+                    "Value",
+                    "StockQuantity",
+                    "Name"
+                },
+                values: new object[,]
+                {
+                    {100, 3, "IPhone"},
+                    {200, 4, "Ipad"},
+                    {300, 5, "Samsung Galaxy"},
+                    {500, 6, "Nokia"},
+                    {600, 1, "Colchão"},
+                    {200, 5, "Aspirador de pó"},
+                    {300, 2, "Air Fryer"}
+                });
+            
         }
 
         /// <inheritdoc />

@@ -25,13 +25,11 @@ public class PaymentEventListener : BackgroundService
     
     private void ListenToCreatePaymentEvent()
     {
-        var productEvent = _messageBroker.ReceiveMessage<ValidateProductEventModel>(EventQueue.CreatePaymentQueue);
-        if(productEvent != null) _paymentApplication.CreatePayment(productEvent);
+         _messageBroker.ReceiveMessage<CreatePaymentEventModel>(EventQueue.CreatePaymentQueue, _paymentApplication.CreatePayment);
     }
 
     private void ListenToRollbackPaymentEvent()
     {
-        var payment = _messageBroker.ReceiveMessage<PaymentEventModel>(EventQueue.RollbackPaymentQueue);
-        if(payment != null) _paymentApplication.RollbackCreatePayment();
+        _messageBroker.ReceiveMessage<RollbackPaymentEventModel>(EventQueue.RollbackPaymentQueue, _paymentApplication.RollbackCreatePayment);
     }
 }

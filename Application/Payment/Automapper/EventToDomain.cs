@@ -8,6 +8,6 @@ public class EventToDomain : Profile
 {
     public EventToDomain()
     {
-        CreateMap<ValidateProductEventModel, CreatePaymentCommand>();
+        CreateMap<CreatePaymentEventModel, CreatePaymentCommand>();
     }
 }

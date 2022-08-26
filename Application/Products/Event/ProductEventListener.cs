@@ -18,12 +18,9 @@ public class ProductEventListener : BackgroundService
     
     protected override Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        while (!stoppingToken.IsCancellationRequested)
-        {
-            ListenToValidateProductEvent();
-            ListenToRollbackProductEvent();
-        }
-
+        ListenToValidateProductEvent();
+        ListenToRollbackProductEvent();
+        
         return Task.CompletedTask;
     }
 

@@ -34,8 +34,9 @@ builder.Services.AddSingleton<IMessageBroker, MessageBroker.MessageBroker>(x =>
 });
 
 builder.Services.AddAutoMapper(typeof(ProductAutoMapperConfig));
-builder.Services.AddHostedService<ProductEventListener>();
 builder.WebHost.UseUrls("http://localhost:9002");
+builder.Services.AddHostedService<ProductEventListener>();
+
 
 var app = builder.Build();
 

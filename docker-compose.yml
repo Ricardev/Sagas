@@ -1,0 +1,79 @@
+﻿version: '3.8'
+
+services:
+  #db:
+   # image: postgres
+
+  messageBroker:
+    image: rabbitmq:management
+    hostname: messageBroker
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 10s
+      timeout: 15s
+      retries: 3
+    networks:
+      - services-network
+    expose:
+      - "5672"
+      - "15672"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    environment:
+      RABBITMQ_DEFAULT_USER: "admin"
+      RABBITMQ_DEFAULT_PASS: "password"
+
+  serviceDiscovery:
+    image: steeltoeoss/eureka-server
+    hostname: eureka-server
+    expose:
+      - "8761"
+    networks:
+      - services-network
+    ports:
+      - "8761:8761"
+    
+  order-api:
+    image: ${DOCKER_REGISTRY-}orderapi
+    hostname: orderapi
+    environment:
+      - Eureka__Client__ServiceUrl=http://serviceDiscovery:8761/eureka/
+      - Eureka__Client__ShouldRegisterWithEureka=true
+      - Eureka__Client__ValidateCertificates=false
+    networks:
+      - services-network
+    depends_on:
+      - serviceDiscovery
+    build:
+      context: .
+      dockerfile: Services/Order/Dockerfile
+    links:
+      - "serviceDiscovery"
+
+  product-api:
+    image: ${DOCKER_REGISTRY-}productapi
+    hostname: productapi
+    environment:
+      - Eureka__Client__ServiceUrl=http://serviceDiscovery:8761/eureka/
+      - Eureka__Client__ShouldRegisterWithEureka=true
+      - Eureka__Client__ValidateCertificates=false
+      - MessageBroker__Host=$messageBroker
+    networks:
+      - services-network
+    depends_on:
+      messageBroker:
+        condition: service_healthy
+      serviceDiscovery:
+        condition: service_started
+    build:
+      context: .
+      dockerfile: Services/Products/Dockerfile
+    links:
+      - "serviceDiscovery"
+      - "messageBroker"
+        
+        
+        
+networks:
+  services-network:

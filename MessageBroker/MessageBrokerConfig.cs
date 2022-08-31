@@ -6,9 +6,9 @@ public static class MessageBrokerConfig
 {
     public static IModel ChannelConfig()
     {
-        var channel = new ConnectionFactory { Uri = new Uri("amqp://admin:password@messageBroker:5672") }
-            .CreateConnection()
-            .CreateModel();
-        return channel;
+        
+        var channel = new ConnectionFactory() {HostName = "messageBroker", UserName = "admin", Password = "password", Port = 5672}.CreateConnection();
+        
+        return channel.CreateModel();
     } 
 }

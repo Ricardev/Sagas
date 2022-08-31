@@ -5,18 +5,15 @@ services:
    # image: postgres
 
   messageBroker:
-    image: rabbitmq:management
-    hostname: messageBroker
+    image: rabbitmq:3-management
+    hostname: "rabbitmq"
     healthcheck:
       test: rabbitmq-diagnostics -q ping
-      interval: 10s
+      interval: 5s
       timeout: 15s
       retries: 3
     networks:
       - services-network
-    expose:
-      - "5672"
-      - "15672"
     ports:
       - "15672:15672"
       - "5672:5672"
@@ -27,8 +24,6 @@ services:
   serviceDiscovery:
     image: steeltoeoss/eureka-server
     hostname: eureka-server
-    expose:
-      - "8761"
     networks:
       - services-network
     ports:
@@ -48,17 +43,15 @@ services:
     build:
       context: .
       dockerfile: Services/Order/Dockerfile
-    links:
-      - "serviceDiscovery"
 
   product-api:
     image: ${DOCKER_REGISTRY-}productapi
     hostname: productapi
+    restart: on-failure
     environment:
       - Eureka__Client__ServiceUrl=http://serviceDiscovery:8761/eureka/
       - Eureka__Client__ShouldRegisterWithEureka=true
       - Eureka__Client__ValidateCertificates=false
-      - MessageBroker__Host=$messageBroker
     networks:
       - services-network
     depends_on:
@@ -69,9 +62,6 @@ services:
     build:
       context: .
       dockerfile: Services/Products/Dockerfile
-    links:
-      - "serviceDiscovery"
-      - "messageBroker"
         
         
         

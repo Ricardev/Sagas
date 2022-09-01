@@ -41,4 +41,8 @@ Para realizar a comunicação entre os micro serviços, foi utilizado o RabbitMQ
 Ademais, foi utilizado o BackgroundService para ficar rodando em segundo plano e ouvindo quando as mensagens pertinentes aquele servico chegaram. Novamente, se fosse hospedado na Cloud, poderiamos substituir essa abordagem por Lambdas Functions ou Azure Functions.
 
 
+Então, nós temos nosso serviço de mensageria chamado de MessageBroker. Ele possui uma interface e uma implementação. O código para o consumo do RabbitMq se encontra nele e todo serviço que queira publicar ou receber mensagens, precisa chamar ele. Além disso, nele estão concentrados os nomes das filas que os serviços irão publicar/consumir, com as models que irão publicar e retornar.
+Tudo que temos que fazer agora é, sempre que quisermos criar um novo evento, criar dentro de EventModels os seus atributos, e criar o nome de sua fila específica.
+
+Para conseguirmos rodar os repositórios, recomendo utilizar o docker com o comando "docker-compose up" na raiz do projeto.
 

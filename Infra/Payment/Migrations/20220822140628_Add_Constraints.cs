@@ -12,9 +12,9 @@ namespace Infra.Payment.Migrations
         {
             migrationBuilder.AddForeignKey("FK_Order_Product_ProductId", table: "Order" ,"ProductId", 
                 principalTable: "Product", principalColumn: "ProductId", principalSchema:"ProductSchema", schema:"OrderSchema");
-            migrationBuilder.AddForeignKey("FK_Order_Payment_PaymentId", table: "Payment", "OrderId", 
+            migrationBuilder.AddForeignKey("FK_Payment_Order_OrderId", table: "Payment", "OrderId", 
                 schema: "PaymentSchema", principalTable: "Order" , principalColumn: "OrderId", principalSchema: "OrderSchema");
-            migrationBuilder.AddForeignKey("FK_Order_Product_ProductId", table: "Payment" ,"PaymentId", 
+            migrationBuilder.AddForeignKey("FK_Payment_Product_ProductId", table: "Payment" ,"PaymentId", 
                 schema:"PaymentSchema", principalTable: "Product", principalColumn: "ProductId", principalSchema:"ProductSchema");
         }
 

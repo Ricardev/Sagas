@@ -1,69 +1,137 @@
 ﻿version: '3.8'
 
 services:
-  #db:
-   # image: postgres
-
-  messageBroker:
-    image: rabbitmq:3-management
-    hostname: "rabbitmq"
-    healthcheck:
-      test: rabbitmq-diagnostics -q ping
-      interval: 5s
-      timeout: 15s
-      retries: 3
+  
+  sagasDb:
+    image: postgres
+    volumes:
+      - ./Database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_DB=Sagas
     networks:
-      - services-network
+      - database-network
     ports:
-      - "15672:15672"
-      - "5672:5672"
-    environment:
-      RABBITMQ_DEFAULT_USER: "admin"
-      RABBITMQ_DEFAULT_PASS: "password"
+      - "5432:5432"
 
-  serviceDiscovery:
-    image: steeltoeoss/eureka-server
-    hostname: eureka-server
-    networks:
-      - services-network
-    ports:
-      - "8761:8761"
-    
-  order-api:
-    image: ${DOCKER_REGISTRY-}orderapi
-    hostname: orderapi
-    environment:
-      - Eureka__Client__ServiceUrl=http://serviceDiscovery:8761/eureka/
-      - Eureka__Client__ShouldRegisterWithEureka=true
-      - Eureka__Client__ValidateCertificates=false
-    networks:
-      - services-network
-    depends_on:
-      - serviceDiscovery
-    build:
-      context: .
-      dockerfile: Services/Order/Dockerfile
-
-  product-api:
-    image: ${DOCKER_REGISTRY-}productapi
-    hostname: productapi
-    restart: on-failure
-    environment:
-      - Eureka__Client__ServiceUrl=http://serviceDiscovery:8761/eureka/
-      - Eureka__Client__ShouldRegisterWithEureka=true
-      - Eureka__Client__ValidateCertificates=false
-    networks:
-      - services-network
-    depends_on:
-      messageBroker:
-        condition: service_healthy
-      serviceDiscovery:
-        condition: service_started
-    build:
-      context: .
-      dockerfile: Services/Products/Dockerfile
-        
+#  messageBroker:
+#    image: rabbitmq:3-management
+#    hostname: "rabbitmq"
+#    healthcheck:
+#      test: rabbitmq-diagnostics -q ping
+#      interval: 5s
+#      timeout: 15s
+#      retries: 3
+#    networks:
+#      - message-network
+#    ports:
+#      - "15672:15672"
+#      - "5672:5672"
+#    environment:
+#      RABBITMQ_DEFAULT_USER: "admin"
+#      RABBITMQ_DEFAULT_PASS: "password"
+#
+#  serviceDiscovery:
+#    image: steeltoeoss/eureka-server
+#    hostname: eureka-server
+#    networks:
+#      - discovery-network
+#    ports:
+#      - "8761:8761"
+#  
+#  gateway:
+#    image: ${DOCKER_REGISTRY-}apigateway
+#    restart: on-failure
+#    environment:
+#      - Eureka__Client__ServiceUrl=${SERVICE_DISCOVERY_URL}
+#      - Eureka__Client__ShouldRegisterWithEureka=true
+#      - Eureka__Client__ValidateCertificates=false
+#    depends_on:
+#      serviceDiscovery:
+#        condition: service_started
+#    networks:
+#      - services-network
+#      - discovery-network
+#    build:
+#      context: .
+#      dockerfile: Services/ApiGateway/Dockerfile
+#    ports:
+#      - "9000:9000"
+#    
+#  order-api:
+#    image: ${DOCKER_REGISTRY-}orderapi
+#    hostname: orderapi
+#    environment:
+#      - Eureka__Client__ServiceUrl=${SERVICE_DISCOVERY_URL}
+#      - Eureka__Client__ShouldRegisterWithEureka=true
+#      - Eureka__Client__ValidateCertificates=false
+#      - DatabaseConnection__ConnectionString=${DATABASE_CONNECTION}
+#    networks:
+#      - services-network
+#      - database-network
+#      - message-network
+#      - discovery-network
+#    depends_on:
+#      - serviceDiscovery
+#      - sagasDb
+#    build:
+#      context: .
+#      dockerfile: Services/Order/Dockerfile
+#
+#  product-api:
+#    image: ${DOCKER_REGISTRY-}productapi
+#    hostname: productapi
+#    restart: on-failure
+#    environment:
+#      - Eureka__Client__ServiceUrl=${SERVICE_DISCOVERY_URL}
+#      - Eureka__Client__ShouldRegisterWithEureka=true
+#      - Eureka__Client__ValidateCertificates=false
+#      - DatabaseConnection__ConnectionString=${DATABASE_CONNECTION}
+#    networks:
+#      - services-network
+#      - database-network
+#      - message-network
+#      - discovery-network
+#    depends_on:
+#      sagasDb:
+#        condition: service_started
+#      messageBroker:
+#        condition: service_healthy
+#      serviceDiscovery:
+#        condition: service_started
+#    build:
+#      context: .
+#      dockerfile: Services/Products/Dockerfile
+#  
+#  payment-api:
+#    image: ${DOCKER_REGISTRY-}paymentapi
+#    hostname: paymentapi
+#    restart: on-failure
+#    environment:
+#      - Eureka__Client__ServiceUrl=${SERVICE_DISCOVERY_URL}
+#      - Eureka__Client__ShouldRegisterWithEureka=true
+#      - Eureka__Client__ValidateCertificates=false
+#      - DatabaseConnection__ConnectionString=${DATABASE_CONNECTION}
+#    networks:
+#      - services-network
+#      - database-network
+#      - message-network
+#      - discovery-network
+#    depends_on:
+#      sagasDb:
+#        condition: service_started
+#      messageBroker:
+#        condition: service_healthy
+#      serviceDiscovery:
+#        condition: service_started
+#    build:
+#      context: .
+#      dockerfile: Services/Payment/Dockerfile
+#        
         
         
 networks:
   services-network:
+  database-network:
+  message-network:
+  discovery-network:

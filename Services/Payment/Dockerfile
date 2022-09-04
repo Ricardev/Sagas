@@ -5,15 +5,15 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["Services/Payment/Payment.csproj", "Payment/"]
+COPY ["Services/Payment/Payment.csproj", "Service/Payment/"]
+COPY ["Services/Payment/Program.cs", "Service/Payment/"]
 COPY ["MessageBroker/MessageBroker.csproj", "MessageBroker/"]
-COPY ["Domain/Payment/Domain.Payment.csproj", "Payment/"]
-COPY ["Application/Payment/Application.Payment.csproj", "Payment/"]
-COPY ["Infra/Payment/Infra.Payment.csproj", "Payment/"]
-RUN dotnet restore "Services/Payment/Payment.csproj"
+COPY ["Domain/Payment/Domain.Payment.csproj", "Domain/Payment/"]
+COPY ["Application/Payment/Application.Payment.csproj", "Application/Payment/"]
+COPY ["Infra/Payment/Infra.Payment.csproj", "Infra/Payment/"]
+RUN dotnet restore "Service/Payment/Payment.csproj"
 COPY . .
-WORKDIR "/src/Payment"
-RUN dotnet build "Payment.csproj" -c Release -o /app/build
+WORKDIR "/src/Service/Payment"
 
 FROM build AS publish
 RUN dotnet publish "Payment.csproj" -c Release -o /app/publish

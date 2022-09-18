@@ -2,7 +2,6 @@
 
 Principais features, frameworks e serviços utilizados nesse projeto:
   - Sagas Choreography Architecture
-  - Domain Driven Design
   - Arquitetura em Camadas
   - CQRS
   - Micro Servicos
@@ -12,6 +11,7 @@ Principais features, frameworks e serviços utilizados nesse projeto:
   - Bancos de Dados Relacionais com PostgreSQL
   - Orquestracao de Containers com Docker
   - Autenticacao
+  - Clean Architecture
 
 # Explicação Inicial
 

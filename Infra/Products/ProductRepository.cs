@@ -24,11 +24,14 @@ public class ProductRepository : IProductRepository
 
     public void CreateProduct(Product product)
     {
-        throw new NotImplementedException();
+        _context.Set<Product>().Add(product);
+        _context.SaveChanges();
     }
 
     public Product OrderProduct(Product product)
     {
-        throw new NotImplementedException();
+        var productOrdered =_context.Set<Product>().Update(product).Entity;
+        _context.SaveChanges();
+        return productOrdered;
     }
 }

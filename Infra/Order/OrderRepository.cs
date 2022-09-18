@@ -12,7 +12,9 @@ public class OrderRepository : IOrderRepository
         _context = context;
     }
     public Domain.Order.Order CreateOrder(Domain.Order.Order order)
-    { 
-        return _context.Add(order).Entity;
+    {
+        var createdOrder = _context.Set<Domain.Order.Order>().Add(order).Entity;
+        _context.SaveChanges();
+        return createdOrder;
     }
 }

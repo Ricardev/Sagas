@@ -3,7 +3,7 @@ using MediatR;
 
 namespace Domain.Products.Command;
 
-public class ProductCommandHandler : IRequestHandler<CreateProductCommand>, IRequestHandler<OrderProductCommand, bool>
+public class ProductCommandHandler : IRequestHandler<CreateProductCommand>, IRequestHandler<OrderProductCommand, bool>,IRequestHandler<RollbackOrderProductCommand>
 {
     private readonly IProductRepository _repository;
 
@@ -14,14 +14,13 @@ public class ProductCommandHandler : IRequestHandler<CreateProductCommand>, IReq
     
     public Task<Unit> Handle(CreateProductCommand request, CancellationToken cancellationToken)
     {
-        
         var product = new ProductBuilder()
             .SetProductValue(request.Value)
             .SetProductName(request.Name)
             .SetProductQuantity(request.StockQuantity)
             .Build();
-        _repository.CreateProduct(product);
         
+        _repository.CreateProduct(product);
         return Task.FromResult(Unit.Value);
     }
 
@@ -43,5 +42,16 @@ public class ProductCommandHandler : IRequestHandler<CreateProductCommand>, IReq
             return Task.FromResult(false);
         }
 
+    }
+
+    public Task<Unit> Handle(RollbackOrderProductCommand request, CancellationToken cancellationToken)
+    {
+        var product = _repository.GetProduct(request.ProductId);
+        if (product == null) return Task.FromResult(Unit.Value);
+        
+        product.CancelProductReservation();
+        _repository.OrderProduct(product);
+
+        return Task.FromResult(Unit.Value);
     }
 }

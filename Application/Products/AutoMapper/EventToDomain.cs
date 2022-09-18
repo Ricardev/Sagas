@@ -9,5 +9,6 @@ public class EventToDomain : Profile
     public EventToDomain()
     {
         CreateMap<ReserveProductEventModel, OrderProductCommand>();
+        CreateMap<RollbackProductEventModel, RollbackOrderProductCommand>();
     }
 }

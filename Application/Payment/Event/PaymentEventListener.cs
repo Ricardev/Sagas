@@ -19,7 +19,6 @@ public class PaymentEventListener : BackgroundService
     protected override Task ExecuteAsync(CancellationToken stoppingToken)
     {
         ListenToCreatePaymentEvent();
-        ListenToRollbackPaymentEvent();
         return Task.CompletedTask;
     }
     
@@ -28,8 +27,5 @@ public class PaymentEventListener : BackgroundService
          _messageBroker.ReceiveMessage<CreatePaymentEventModel>(EventQueue.CreatePaymentQueue, _paymentApplication.CreatePayment);
     }
 
-    private void ListenToRollbackPaymentEvent()
-    {
-        _messageBroker.ReceiveMessage<RollbackPaymentEventModel>(EventQueue.RollbackPaymentQueue, _paymentApplication.RollbackCreatePayment);
-    }
+
 }

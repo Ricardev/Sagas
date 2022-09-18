@@ -31,6 +31,6 @@ public class ProductEventListener : BackgroundService
 
     private void ListenToRollbackProductEvent()
     {
-         _messageBroker.ReceiveMessage<RollbackPaymentEventModel>(EventQueue.RollbackProductQueue, _productApplication.RollbackOrderProduct);
+         _messageBroker.ReceiveMessage<RollbackProductEventModel>(EventQueue.RollbackProductQueue, _productApplication.RollbackOrderProduct);
     }
 }

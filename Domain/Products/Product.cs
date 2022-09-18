@@ -12,7 +12,7 @@ public class Product
     public virtual ICollection<Order> Orders { get; private set; }
 
     public void ReserveProduct() => this.StockQuantity--;
-    public void CancelProductReservation() => StockQuantity--;
+    public void CancelProductReservation() => StockQuantity++;
 
     public void SetProductQuantity(int quantity) => StockQuantity = quantity;
     public void SetProductValue(int value) => Value = value;

@@ -6,6 +6,8 @@ namespace Infra.Order.Context;
 
 public class OrderContext : DbContext
 {
+    
+    
     public OrderContext() {}
     public OrderContext(DbContextOptions options) : base(options) {}
 

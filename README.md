@@ -26,7 +26,7 @@ Então se eu faço uma compra e esta, por sua vez, reserva um produto no estoque
 
 # E como nós implementamos isso?
 
-Ponto primordial: os micro serviços precisam se comunicar, para que quando uma transação ocorra com sucesso, ele passe essa informacao para o proximo micro serviço e quando ela falhar, os anteriores deem rollback. Para isso há duas abordagens para pensarmos:
+Ponto primordial: os micro serviços precisam se comunicar, para que quando uma transação ocorra com sucesso, ele passe essa informação para o proximo micro serviço e quando ela falhar, os anteriores deem rollback. Para isso há duas abordagens para pensarmos:
   - Requisição HTTP.
   - Eventos/Mensagens
 
@@ -35,7 +35,7 @@ No meu caso, eu estou utilizando o Service Discovery para o registro de serviço
 Além disso, nessa abordagem, o servico requisitado precisa obrigatoriamente estar disponível no momento em que for chamado. Com o plus de que voce vai ter que fazer muito mais endpoints para lidar com esses casos.
 
 A segunda abordagem foi a escolhida para este repositorio.
-Nós não precisamos nos preocupar com endereços IP's, portas ou se o servico estara disponivel no momento em que o anterior realizou sua transacao.
+Nós não precisamos nos preocupar com endereços IP's, portas ou se o servico estara disponivel no momento em que o anterior realizou sua transação.
 
 Para realizar a comunicação entre os micro serviços, foi utilizado o RabbitMQ. O componente poderia ser substituido pelo SQS ou Kafka se fosse hospedado na Cloud.
 Ademais, foi utilizado o BackgroundService para ficar rodando em segundo plano e ouvindo quando as mensagens pertinentes aquele servico chegaram. Novamente, se fosse hospedado na Cloud, poderiamos substituir essa abordagem por Lambdas Functions ou Azure Functions.

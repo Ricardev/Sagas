@@ -1,17 +1,21 @@
 ﻿{
   "Routes": [],
+  "Aggregates": [],
   "GlobalConfiguration": {
     "BaseUrl": null,
     "UseServiceDiscovery": true,
     "DownstreamScheme": "http",
     "ServiceDiscoveryProvider": {
-      "Scheme": "https",
-      "Host": "localhost",
+      "Host": "serviceDiscovery",
       "Port": 8761,
-      "Type": "Eureka"
+      "Type": "Eureka",
+      "Token": null,
+      "ConfigurationKey": null
     },
     "LoadBalancerOptions": {
-      "Type": "RoundRobin"
+      "Type": "RoundRobin",
+      "Key": null,
+      "Expiry": 0
     }
   }
 }

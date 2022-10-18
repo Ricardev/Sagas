@@ -11,7 +11,6 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.WebHost.UseUrls("http://localhost:9000");
 builder.WebHost.ConfigureAppConfiguration(configuration => configuration
     .AddJsonFile(Path.Combine("appsettings.json"), true, true)
     .AddJsonFile(Path.Combine("ocelot.json")));

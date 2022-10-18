@@ -33,7 +33,6 @@ builder.Services.AddSingleton(x => new OrderContext());
 builder.Services.AddSingleton<IOrderRepository, OrderRepository>();
 builder.Services.AddAutoMapper(typeof(OrderAutoMapperConfig));
 builder.Services.AddMediatR(typeof(OrderCommandHandler));
-builder.WebHost.UseUrls("http://localhost:10000");
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

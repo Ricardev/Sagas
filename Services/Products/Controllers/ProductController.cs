@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Products.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("[controller]")]
 public class ProductsController : ControllerBase
 {
     private readonly IProductApplication _application;
@@ -14,7 +14,7 @@ public class ProductsController : ControllerBase
         _application = application;
     }
 
-    [HttpGet]
+    [HttpGet(Name = "ObterProdutos")]
     public IActionResult Get()
     {
         var produtos =_application.ObterProdutos();

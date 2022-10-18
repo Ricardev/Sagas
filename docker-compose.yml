@@ -42,10 +42,6 @@ services:
   gateway:
     image: ${DOCKER_REGISTRY-}apigateway
     restart: on-failure
-    environment:
-      - Eureka__Client__ServiceUrl=${SERVICE_DISCOVERY_URL}
-      - Eureka__Client__ShouldRegisterWithEureka=true
-      - Eureka__Client__ValidateCertificates=false
     depends_on:
       serviceDiscovery:
         condition: service_started
@@ -56,42 +52,45 @@ services:
       context: .
       dockerfile: Services/ApiGateway/Dockerfile
     ports:
-      - "9000:9000"
+      - "9000:80"
+    volumes:
+      - ./Services/ApiGateway/appsettings.json:/app/appsettings.json
+      - ./Services/ApiGateway/ocelot.json:/app/ocelot.json
 
-  order-api:
-    image: ${DOCKER_REGISTRY-}orderapi
-    hostname: orderapi
-    environment:
-      - Eureka__Client__ServiceUrl=${SERVICE_DISCOVERY_URL}
-      - Eureka__Client__ShouldRegisterWithEureka=true
-      - Eureka__Client__ValidateCertificates=false
-      - DatabaseConnection__ConnectionString=${DATABASE_CONNECTION}
-    networks:
-      - services-network
-      - database-network
-      - message-network
-      - discovery-network
-    depends_on:
-      - serviceDiscovery
-      - sagasDb
-    build:
-      context: .
-      dockerfile: Services/Order/Dockerfile
+#  order-api:
+#    image: ${DOCKER_REGISTRY-}orderapi
+#    hostname: orderapi
+#    environment:
+#      - Eureka__Client__ServiceUrl=${SERVICE_DISCOVERY_URL}
+#      - Eureka__Client__ShouldRegisterWithEureka=true
+#      - Eureka__Client__ValidateCertificates=false
+#      - DatabaseConnection__ConnectionString=${DATABASE_CONNECTION}
+#    networks:
+#      - services-network
+#      - database-network
+#      - message-network
+#      - discovery-network
+#    depends_on:
+#      - serviceDiscovery
+#      - sagasDb
+#    build:
+#      context: .
+#      dockerfile: Services/Order/Dockerfile
 
   product-api:
     image: ${DOCKER_REGISTRY-}productapi
     hostname: productapi
     restart: on-failure
-    environment:
-      - Eureka__Client__ServiceUrl=${SERVICE_DISCOVERY_URL}
-      - Eureka__Client__ShouldRegisterWithEureka=true
-      - Eureka__Client__ValidateCertificates=false
-      - DatabaseConnection__ConnectionString=${DATABASE_CONNECTION}
     networks:
       - services-network
       - database-network
       - message-network
       - discovery-network
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+    volumes:
+      - ./Services/Products/appsettings.json:/app/appsettings.json
+      - ./Services/Products/Properties/launchSettings.json:/app/Properties/launchSettings.json
     depends_on:
       sagasDb:
         condition: service_started
@@ -102,34 +101,36 @@ services:
     build:
       context: .
       dockerfile: Services/Products/Dockerfile
+    ports:
+      - "9002:9002"
 
-  payment-api:
-    image: ${DOCKER_REGISTRY-}paymentapi
-    hostname: paymentapi
-    restart: on-failure
-    environment:
-      - Eureka__Client__ServiceUrl=${SERVICE_DISCOVERY_URL}
-      - Eureka__Client__ShouldRegisterWithEureka=true
-      - Eureka__Client__ValidateCertificates=false
-      - DatabaseConnection__ConnectionString=${DATABASE_CONNECTION}
-    networks:
-      - services-network
-      - database-network
-      - message-network
-      - discovery-network
-    depends_on:
-      sagasDb:
-        condition: service_started
-      messageBroker:
-        condition: service_healthy
-      serviceDiscovery:
-        condition: service_started
-    build:
-      context: .
-      dockerfile: Services/Payment/Dockerfile
+#  payment-api:
+#    image: ${DOCKER_REGISTRY-}paymentapi
+#    hostname: paymentapi
+#    restart: on-failure
+#    environment:
+#      - Eureka__Client__ServiceUrl=${SERVICE_DISCOVERY_URL}
+#      - Eureka__Client__ShouldRegisterWithEureka=true
+#      - Eureka__Client__ValidateCertificates=false
+#      - DatabaseConnection__ConnectionString=${DATABASE_CONNECTION}
+#    networks:
+#      - services-network
+#      - database-network
+#      - message-network
+#      - discovery-network
+#    depends_on:
+#      sagasDb:
+#        condition: service_started
+#      messageBroker:
+#        condition: service_healthy
+#      serviceDiscovery:
+#        condition: service_started
+#    build:
+#      context: .
+#      dockerfile: Services/Payment/Dockerfile
 
-        
-        
+
+
 networks:
   services-network:
   database-network:

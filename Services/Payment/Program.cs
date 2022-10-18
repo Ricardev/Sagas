@@ -34,7 +34,6 @@ builder.Services.AddAutoMapper(typeof(PaymentAutoMapperConfig));
 builder.Services.AddScoped(x => new PaymentContext());
 builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 builder.Services.AddHostedService<PaymentEventListener>();
-builder.WebHost.UseUrls("http://localhost:9001");
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

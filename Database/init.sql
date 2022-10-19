@@ -14,7 +14,7 @@ create table "ProductSchema"."Product" (
     "ProductId" serial not null primary key,
     "StockQuantity" integer not null,
     "Value" integer not null,
-    "ProductName" varchar(20)
+    "Name" varchar(20)
 );
 
 create schema "PaymentSchema";
@@ -42,7 +42,7 @@ alter table "PaymentSchema"."Payment"
         foreign key ("ProductId") 
             references "ProductSchema"."Product" ("ProductId");
 
-insert into "ProductSchema"."Product" ("ProductName", "Value", "StockQuantity") 
+insert into "ProductSchema"."Product" ("Name", "Value", "StockQuantity") 
 values 
     ('Samsung Galaxy', 3000, 8),
     ('Nokia', 2000, 4),

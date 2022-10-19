@@ -86,11 +86,8 @@ services:
       - database-network
       - message-network
       - discovery-network
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Docker
     volumes:
       - ./Services/Products/appsettings.json:/app/appsettings.json
-      - ./Services/Products/Properties/launchSettings.json:/app/Properties/launchSettings.json
     depends_on:
       sagasDb:
         condition: service_started

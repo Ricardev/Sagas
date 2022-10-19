@@ -6,6 +6,7 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["Services/Products/Products.csproj", "Service/Products/"]
+COPY ["Services/Products/Controllers/ProductController.cs", "Service/Products/Controllers/"]
 COPY ["Services/Products/Program.cs", "Service/Products/"]
 COPY ["Domain/Products/Domain.Products.csproj", "Domain/Products/"]
 COPY ["Application/Products/Application.Products.csproj", "Application/Products/"]

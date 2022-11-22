@@ -1,9 +1,12 @@
 ﻿FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+ENV ASPNETCORE_URLS=http://+:9004
+EXPOSE 9004
 WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["Services/Order/Order.csproj", "Service/Order/"]
+COPY ["Services/Order/Controllers/OrderController.cs", "Service/Order/"]
 COPY ["Services/Order/Program.cs", "Service/Order/"]
 COPY ["Application/Order/Application.Order.csproj", "Application/Order/"]
 COPY ["Domain/Order/Domain.Order.csproj", "Domain/Order/"]

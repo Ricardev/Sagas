@@ -19,8 +19,9 @@ public class PaymentCommandHandler : IRequestHandler<CreatePaymentCommand, bool>
             var payment = new PaymentBuilder()
                 .SetPaymentValue(request.PaymentValue)
                 .SetPaymentOrderId(request.OrderId)
+                .SetPaymentProductId(request.ProductId)
                 .Build();
-        
+            
             _repository.CreatePayment(payment);
             return Task.FromResult(true);
         }

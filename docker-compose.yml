@@ -24,6 +24,7 @@ services:
       retries: 3
     networks:
       - message-network
+      - services-network
     ports:
       - "15672:15672"
       - "5672:5672"
@@ -57,25 +58,28 @@ services:
       - ./Services/ApiGateway/appsettings.json:/app/appsettings.json
       - ./Services/ApiGateway/ocelot.json:/app/ocelot.json
 
-#  order-api:
-#    image: ${DOCKER_REGISTRY-}orderapi
-#    hostname: orderapi
-#    environment:
-#      - Eureka__Client__ServiceUrl=${SERVICE_DISCOVERY_URL}
-#      - Eureka__Client__ShouldRegisterWithEureka=true
-#      - Eureka__Client__ValidateCertificates=false
-#      - DatabaseConnection__ConnectionString=${DATABASE_CONNECTION}
-#    networks:
-#      - services-network
-#      - database-network
-#      - message-network
-#      - discovery-network
-#    depends_on:
-#      - serviceDiscovery
-#      - sagasDb
-#    build:
-#      context: .
-#      dockerfile: Services/Order/Dockerfile
+  order-api:
+    image: ${DOCKER_REGISTRY-}orderapi
+    hostname: orderapi
+    environment:
+      - Eureka__Client__ServiceUrl=${SERVICE_DISCOVERY_URL}
+      - Eureka__Client__ShouldRegisterWithEureka=true                   #Exemplo de como tulizar variáveis de ambientes para definir
+      - Eureka__Client__ValidateCertificates=false                      # as configurações que estão dentro do appSettings.
+      - Eureka__Instance__NonSecurePort=${ORDER_INSTANCE_NONSECUREPORT} # Exemplo de como utilizar um arquivo de variáveis
+      - Eureka__Instance__HostName=${ORDER_INSTANCE_HOSTNAME}           # de ambiente a fim de não deixar variáveis expostas
+      - Eureka__Instance__InstanceId=${ORDER_INSTANCE_INSTANCEID}       # e organizá-las melhor. O arquivo em questão 
+      - DatabaseConnection__ConnectionString=${DATABASE_CONNECTION}     # é o .env na pasta raiz.
+    networks:
+      - services-network
+      - database-network
+      - message-network
+      - discovery-network
+    depends_on:
+      - serviceDiscovery
+      - sagasDb
+    build:
+      context: .
+      dockerfile: Services/Order/Dockerfile
 
   product-api:
     image: ${DOCKER_REGISTRY-}productapi
@@ -87,7 +91,7 @@ services:
       - message-network
       - discovery-network
     volumes:
-      - ./Services/Products/appsettings.json:/app/appsettings.json
+      - ./Services/Products/appsettings.json:/app/appsettings.json #Exemplo de como utilizar volumes para definir o appSettings.
     depends_on:
       sagasDb:
         condition: service_started
@@ -98,33 +102,34 @@ services:
     build:
       context: .
       dockerfile: Services/Products/Dockerfile
-    ports:
-      - "9002:9002"
 
-#  payment-api:
-#    image: ${DOCKER_REGISTRY-}paymentapi
-#    hostname: paymentapi
-#    restart: on-failure
-#    environment:
-#      - Eureka__Client__ServiceUrl=${SERVICE_DISCOVERY_URL}
-#      - Eureka__Client__ShouldRegisterWithEureka=true
-#      - Eureka__Client__ValidateCertificates=false
-#      - DatabaseConnection__ConnectionString=${DATABASE_CONNECTION}
-#    networks:
-#      - services-network
-#      - database-network
-#      - message-network
-#      - discovery-network
-#    depends_on:
-#      sagasDb:
-#        condition: service_started
-#      messageBroker:
-#        condition: service_healthy
-#      serviceDiscovery:
-#        condition: service_started
-#    build:
-#      context: .
-#      dockerfile: Services/Payment/Dockerfile
+  payment-api:
+    image: ${DOCKER_REGISTRY-}paymentapi
+    hostname: paymentapi
+    restart: on-failure
+    environment:
+      - Eureka__Client__ServiceUrl=${SERVICE_DISCOVERY_URL}
+      - Eureka__Client__ShouldRegisterWithEureka=true       
+      - Eureka__Client__ValidateCertificates=false
+      - Eureka__Instance__NonSecurePort=${PAYMENT_INSTANCE_NONSECUREPORT}
+      - Eureka__Instance__HostName=${PAYMENT_INSTANCE_HOSTNAME}     # Nós precisamos colocar o hostname como o nome do
+      - Eureka__Instance__InstanceId=${PAYMENT_INSTANCE_INSTANCEID} # próprio serviço, neste caso "payment-api", pois é
+      - DatabaseConnection__ConnectionString=${DATABASE_CONNECTION} # ele quem o gateway tentará chamar. Portanto quando
+    networks:                                                       # nós passarmos nossa url: http://localhost:9000/Payment
+      - services-network                                            # no qual 9000 é a porta do Gateway e Payment é o nome
+      - database-network                                            # do serviço cadastrado no Service Discovery, o nosso Gateway
+      - message-network                                             # irá traduzir "Payment" para "payment-api".
+      - discovery-network
+    depends_on:
+      sagasDb:
+        condition: service_started
+      messageBroker:
+        condition: service_healthy
+      serviceDiscovery:
+        condition: service_started
+    build:
+      context: .
+      dockerfile: Services/Payment/Dockerfile
 
 
 

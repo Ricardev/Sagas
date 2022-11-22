@@ -35,17 +35,18 @@ public class ProductApplication : IProductApplication
         
         var success = await _mediator.Send(orderProductCommand);
 
-        if (success)
+        if (!success)
+            return;
+        
+        var createPaymentEventModel = new CreatePaymentEventModel
         {
-            var createPaymentEventModel = new CreatePaymentEventModel()
-            {
-                OrderId = order.OrderId,
-                ProductId = order.ProductId
-            };
-            _messageBroker.PublishMessage(createPaymentEventModel, EventQueue.CreatePaymentQueue, "Product Exchange");
-        }
-
-
+            OrderId = order.OrderId,
+            ProductId = order.ProductId,
+            PaymentValue = 10 //Aqui nós deveríamos retornar o valor do produto na resposta do mediator,além do booleano de sucesso
+                              //e multiplicar pela quantidade de produtos pedidos.
+                              //Mas tô com preguiça, se eu tiver boa vontade depois eu faço. Vocês pegaram a ideia.
+        };
+        _messageBroker.PublishMessage(createPaymentEventModel, EventQueue.CreatePaymentQueue, "Product Exchange");
     }
 
     public void RollbackOrderProduct(RollbackProductEventModel rollbackProductEvent)

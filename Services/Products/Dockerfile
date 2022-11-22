@@ -15,6 +15,7 @@ COPY ["Infra/Products/Infra.Products.csproj", "Infra/Products/"]
 RUN dotnet restore "Service/Products/Products.csproj"
 COPY . .
 WORKDIR "/src/Service/Products"
+# RUN dotnet build "AspnetRunBasics.csproj" -c Release -o /app/build
 
 FROM build AS publish
 RUN dotnet publish "Products.csproj" -c Release -o /app/publish

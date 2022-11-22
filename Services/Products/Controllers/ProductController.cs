@@ -14,7 +14,7 @@ public class ProductsController : ControllerBase
         _application = application;
     }
 
-    [HttpGet(Name = "ObterProdutos")]
+    [HttpGet("ObterProdutos", Name = "ObterProdutos")]
     public IActionResult Get()
     {
         var produtos =_application.ObterProdutos();

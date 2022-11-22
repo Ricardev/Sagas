@@ -21,7 +21,6 @@ public class MessageBroker : IMessageBroker
                 routingKey: eventQueue,
                 basicProperties: null,
                 body: body);
-            Console.WriteLine(" [x] Sent {0}", message);
     }
 
     public void ReceiveMessage<T>(string eventQueue, Action<T> appServiceCall)

@@ -15,4 +15,6 @@ public class Payment
     public void SetPaymentValue(int value) => PaymentValue = value;
 
     public void SetOrderId(int id) => OrderId = id;
+    
+    public void SetProductId(int id) => ProductId = id;
 }

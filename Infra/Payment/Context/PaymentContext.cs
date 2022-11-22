@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Infra.Payment.Mappings;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 namespace Infra.Payment.Context;
@@ -10,6 +11,13 @@ public class PaymentContext : DbContext
     public PaymentContext() {}
     public PaymentContext(DbContextOptions options) : base(options) {}
 
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfiguration(new PaymentMapping());
+        modelBuilder.ApplyConfiguration(new OrderMapping());
+        base.OnModelCreating(modelBuilder);
+    }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

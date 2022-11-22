@@ -21,5 +21,11 @@ public class PaymentBuilder
         return this;
     }
 
+    public PaymentBuilder SetPaymentProductId(int productId)
+    {
+        _payment.SetProductId(productId);
+        return this;
+    }
+
     public Payment Build() => _payment;
 }

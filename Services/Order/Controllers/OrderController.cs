@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Order.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("[controller]")]
 public class OrderController : ControllerBase
 {
     private readonly IOrderApplication _application;
@@ -14,8 +14,7 @@ public class OrderController : ControllerBase
         _application = application;
     }
     
-    [Route("MakeOrder")]
-    [HttpPost]
+    [HttpPost("MakeOrder")]
     public async Task<IActionResult> MakeOrder([FromBody] MakeOrderModel orderModel)
     {
         await _application.MakeOrder(orderModel);

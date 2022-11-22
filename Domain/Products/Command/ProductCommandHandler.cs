@@ -28,7 +28,7 @@ public class ProductCommandHandler : IRequestHandler<CreateProductCommand>, IReq
     {
         try
         {
-            var product = _repository.GetProduct(request.Id);
+            var product = _repository.GetProduct(request.ProductId);
             
             if (product == null)
                 return Task.FromResult(false);

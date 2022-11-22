@@ -4,5 +4,5 @@ namespace Domain.Products.Command;
 
 public class OrderProductCommand : IRequest<bool>
 {
-    public int Id { get; set; }
+    public int ProductId { get; set; }
 }

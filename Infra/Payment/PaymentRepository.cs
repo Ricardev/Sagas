@@ -13,7 +13,8 @@ public class PaymentRepository : IPaymentRepository
     }
     public Domain.Payment.Payment CreatePayment(Domain.Payment.Payment payment)
     {
-        var createdPayment = _context.Set<Domain.Payment.Payment>().Add(payment).Entity;
+        var createdPayment = _context.Set<Domain.Payment.Payment>()
+            .Add(payment).Entity;
         _context.SaveChanges();
         return createdPayment;
     }

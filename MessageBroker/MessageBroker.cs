@@ -37,6 +37,6 @@ public class MessageBroker : IMessageBroker
             };
             _channel.BasicConsume(queue: eventQueue,
                 autoAck: false,
-                consumer: consumer);
+                consumer: consumer);a
     }
 }

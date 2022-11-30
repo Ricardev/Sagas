@@ -13,12 +13,12 @@ public class MessageBroker : IMessageBroker
     {
         _channel = channel;
     }
-    public void PublishMessage<T>(T command, string eventQueue, string exchange)
+    public void PublishMessage<T>(T command, string exchange)
     {
         var message = JsonSerializer.Serialize(command);
-            var body = Encoding.UTF8.GetBytes(message);
-            _channel.BasicPublish(exchange: exchange,
-                routingKey: eventQueue,
+        var body = Encoding.UTF8.GetBytes(message);
+        _channel.BasicPublish(exchange: exchange,
+                routingKey: "",
                 basicProperties: null,
                 body: body);
     }
@@ -26,7 +26,7 @@ public class MessageBroker : IMessageBroker
     public void ReceiveMessage<T>(string eventQueue, Action<T> appServiceCall)
     {
         var consumer = new EventingBasicConsumer(_channel);
-            
+            Console.WriteLine(eventQueue);
             consumer.Received += (model, ea) =>
             {
                 var body = ea.Body.ToArray();
@@ -35,9 +35,8 @@ public class MessageBroker : IMessageBroker
                 if (commandEvent != null)
                     appServiceCall(commandEvent);
             };
-
             _channel.BasicConsume(queue: eventQueue,
-                autoAck: true,
+                autoAck: false,
                 consumer: consumer);
     }
 }

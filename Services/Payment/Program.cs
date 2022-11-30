@@ -24,11 +24,10 @@ builder.Services.AddDiscoveryClient(builder.Configuration);
 builder.Services.AddSingleton<IMessageBroker, MessageBroker.MessageBroker>(x =>
 {
     var channel = MessageBrokerConfig.ChannelConfig();
-    channel.ExchangeDeclare(QueueExchange.PaymentExchange, ExchangeType.Fanout, true);
-    channel.QueueDeclare(EventQueue.CreatePaymentQueue,true, false, false, null);
-    channel.QueueDeclare(EventQueue.RollbackPaymentQueue, true, false, false, null);
-    channel.QueueBind(queue: EventQueue.CreatePaymentQueue, exchange: QueueExchange.PaymentExchange, routingKey: "");
-    channel.QueueBind(queue: EventQueue.RollbackPaymentQueue, exchange: QueueExchange.PaymentExchange, routingKey: "");
+    channel.ExchangeDeclare(QueueExchange.CreatePaymentExchange, ExchangeType.Fanout);
+    channel.ExchangeDeclare(QueueExchange.RollbackProductExchange, ExchangeType.Fanout);
+    channel.QueueDeclare(EventQueue.CreatePaymentQueue,false, false, false, null);
+    channel.QueueBind(queue: EventQueue.CreatePaymentQueue, exchange: QueueExchange.CreatePaymentExchange, routingKey: "");
     return new MessageBroker.MessageBroker(channel);
 });
 builder.Services.AddSingleton<IPaymentApplication, PaymentApplication>();

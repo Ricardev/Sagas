@@ -26,7 +26,7 @@ public class PaymentApplication : IPaymentApplication
         if (!success)
         {
             var rollbackOrderProduct = new RollbackProductEventModel(validateProductEvent.OrderId, validateProductEvent.ProductId);
-            _messageBroker.PublishMessage(rollbackOrderProduct, EventQueue.RollbackProductQueue, "Product Exchange");
+            _messageBroker.PublishMessage(rollbackOrderProduct, QueueExchange.RollbackProductExchange);
         }
     }
     

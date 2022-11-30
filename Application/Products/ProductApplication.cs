@@ -46,7 +46,7 @@ public class ProductApplication : IProductApplication
                               //e multiplicar pela quantidade de produtos pedidos.
                               //Mas tô com preguiça, se eu tiver boa vontade depois eu faço. Vocês pegaram a ideia.
         };
-        _messageBroker.PublishMessage(createPaymentEventModel, EventQueue.CreatePaymentQueue, "Product Exchange");
+        _messageBroker.PublishMessage(createPaymentEventModel, QueueExchange.CreatePaymentExchange);
     }
 
     public void RollbackOrderProduct(RollbackProductEventModel rollbackProductEvent)

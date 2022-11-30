@@ -21,10 +21,8 @@ builder.Services.AddDiscoveryClient(builder.Configuration);
 
 builder.Services.AddScoped<IMessageBroker, MessageBroker.MessageBroker>(x =>
 {
-    var channel = MessageBrokerConfig.ChannelConfig(); 
-    channel.ExchangeDeclare(QueueExchange.OrderExchange, ExchangeType.Fanout,true);
-    channel.QueueDeclare(EventQueue.ValidateProductQueue,true, false, false, null);
-    channel.QueueBind(queue: EventQueue.ValidateProductQueue, exchange:QueueExchange.OrderExchange, routingKey: "");
+    var channel = MessageBrokerConfig.ChannelConfig();
+    channel.ExchangeDeclare(QueueExchange.CreateProductExchange, ExchangeType.Fanout);
     return new MessageBroker.MessageBroker(channel);
 });
 

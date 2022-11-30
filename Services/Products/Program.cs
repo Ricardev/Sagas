@@ -26,14 +26,14 @@ builder.Services.AddDiscoveryClient(builder.Configuration);
 builder.Services.AddSingleton<IMessageBroker, MessageBroker.MessageBroker>(x =>
 {
     var channel = MessageBrokerConfig.ChannelConfig();
-    channel.ExchangeDeclare(QueueExchange.ProductExchange, ExchangeType.Fanout, true);
-    channel.QueueDeclare(EventQueue.ValidateProductQueue,true, false, false, null);
-    channel.QueueDeclare(EventQueue.RollbackProductQueue, true, false, false, null);
-    channel.QueueDeclare(EventQueue.CreatePaymentQueue,true, false, false, null);
-    channel.QueueBind(queue: EventQueue.ValidateProductQueue, exchange: QueueExchange.ProductExchange, routingKey: "");
-    channel.QueueBind(queue: EventQueue.RollbackProductQueue, exchange: QueueExchange.ProductExchange, routingKey: "");
-    channel.QueueBind(queue: EventQueue.CreatePaymentQueue, exchange: QueueExchange.ProductExchange, routingKey: "");
-    
+    channel.ExchangeDeclare(QueueExchange.CreateProductExchange, ExchangeType.Fanout);
+    channel.ExchangeDeclare(QueueExchange.RollbackProductExchange, ExchangeType.Fanout);
+    channel.ExchangeDeclare(QueueExchange.CreatePaymentExchange, ExchangeType.Fanout);
+    channel.QueueDeclare(EventQueue.ValidateProductQueue,false, false, false, null);
+    channel.QueueDeclare(EventQueue.RollbackProductQueue, false, false, false, null);
+    channel.QueueBind(queue: EventQueue.ValidateProductQueue, exchange: QueueExchange.CreateProductExchange, routingKey: "");
+    channel.QueueBind(queue: EventQueue.RollbackProductQueue, exchange: QueueExchange.RollbackProductExchange, routingKey: "");
+
     return new MessageBroker.MessageBroker(channel);
 });
 

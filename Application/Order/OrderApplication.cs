@@ -28,7 +28,7 @@ public class OrderApplication : IOrderApplication
         if (orderId != -1)
         {
             var createdOrderEvent = new ReserveProductEventModel(orderId, orderModel.UserId, orderModel.ProductId, orderModel.Quantity);
-            _messageBroker.PublishMessage(createdOrderEvent,eventQueue: EventQueue.ValidateProductQueue, "Order Exchange");
+            _messageBroker.PublishMessage(createdOrderEvent, QueueExchange.CreateProductExchange);
         }
     }
 }

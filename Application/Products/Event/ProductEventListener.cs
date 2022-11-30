@@ -6,7 +6,6 @@ namespace Application.Products.Event;
 
 public class ProductEventListener : BackgroundService
 {
-
     private readonly IMessageBroker _messageBroker;
     private readonly IProductApplication _productApplication;
 

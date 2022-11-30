@@ -130,6 +130,83 @@
         }
       }
     },
+    "C:\\Users\\ricar\\Documents\\Sagas\\Infra\\IoC\\Infra.IoC.Order\\Infra.Ioc.Order.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ricar\\Documents\\Sagas\\Infra\\IoC\\Infra.IoC.Order\\Infra.Ioc.Order.csproj",
+        "projectName": "Infra.Ioc.Order",
+        "projectPath": "C:\\Users\\ricar\\Documents\\Sagas\\Infra\\IoC\\Infra.IoC.Order\\Infra.Ioc.Order.csproj",
+        "packagesPath": "C:\\Users\\ricar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ricar\\Documents\\Sagas\\Infra\\IoC\\Infra.IoC.Order\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ricar\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\ricar\\Documents\\Sagas\\Application\\Order\\Application.Order.csproj": {
+                "projectPath": "C:\\Users\\ricar\\Documents\\Sagas\\Application\\Order\\Application.Order.csproj"
+              },
+              "C:\\Users\\ricar\\Documents\\Sagas\\Infra\\Order\\Infra.Order.csproj": {
+                "projectPath": "C:\\Users\\ricar\\Documents\\Sagas\\Infra\\Order\\Infra.Order.csproj"
+              },
+              "C:\\Users\\ricar\\Documents\\Sagas\\MessageBroker\\MessageBroker.csproj": {
+                "projectPath": "C:\\Users\\ricar\\Documents\\Sagas\\MessageBroker\\MessageBroker.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "Steeltoe.Discovery.ClientBase": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\ricar\\Documents\\Sagas\\Infra\\Order\\Infra.Order.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -293,14 +370,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\ricar\\Documents\\Sagas\\Application\\Order\\Application.Order.csproj": {
-                "projectPath": "C:\\Users\\ricar\\Documents\\Sagas\\Application\\Order\\Application.Order.csproj"
-              },
-              "C:\\Users\\ricar\\Documents\\Sagas\\Infra\\Order\\Infra.Order.csproj": {
-                "projectPath": "C:\\Users\\ricar\\Documents\\Sagas\\Infra\\Order\\Infra.Order.csproj"
-              },
-              "C:\\Users\\ricar\\Documents\\Sagas\\MessageBroker\\MessageBroker.csproj": {
-                "projectPath": "C:\\Users\\ricar\\Documents\\Sagas\\MessageBroker\\MessageBroker.csproj"
+              "C:\\Users\\ricar\\Documents\\Sagas\\Infra\\IoC\\Infra.Ioc.Order\\Infra.Ioc.Order.csproj": {
+                "projectPath": "C:\\Users\\ricar\\Documents\\Sagas\\Infra\\IoC\\Infra.Ioc.Order\\Infra.Ioc.Order.csproj"
               }
             }
           }
@@ -315,18 +386,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
-              "target": "Package",
-              "version": "[11.0.0, )"
-            },
-            "MediatR.Extensions.Microsoft.DependencyInjection": {
-              "target": "Package",
-              "version": "[10.0.1, )"
-            },
-            "Steeltoe.Discovery.Eureka": {
-              "target": "Package",
-              "version": "[3.2.1, )"
-            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"

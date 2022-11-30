@@ -12,6 +12,8 @@ COPY ["Application/Order/Application.Order.csproj", "Application/Order/"]
 COPY ["Domain/Order/Domain.Order.csproj", "Domain/Order/"]
 COPY ["MessageBroker/MessageBroker.csproj", "MessageBroker/"]
 COPY ["Infra/Order/Infra.Order.csproj", "Infra/Order/"]
+COPY ["Infra/IoC/Infra.Ioc.Order/Infra.Ioc.Order.csproj", "Infra/IoC/Infra.Ioc.Order/"]
+COPY ["Infra/IoC/Infra.Ioc.Order/DependencyInjector.cs", "Infra/IoC/Infra.Ioc.Order/"]
 RUN dotnet restore "Service/Order/Order.csproj"
 COPY . .
 WORKDIR "/src/Service/Order"

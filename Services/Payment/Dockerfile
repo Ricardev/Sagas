@@ -12,6 +12,8 @@ COPY ["MessageBroker/MessageBroker.csproj", "MessageBroker/"]
 COPY ["Domain/Payment/Domain.Payment.csproj", "Domain/Payment/"]
 COPY ["Application/Payment/Application.Payment.csproj", "Application/Payment/"]
 COPY ["Infra/Payment/Infra.Payment.csproj", "Infra/Payment/"]
+COPY ["Infra/IoC/Infra.Ioc.Payment/Infra.Ioc.Payment.csproj", "Infra/IoC/Infra.Ioc.Payment/"]
+COPY ["Infra/IoC/Infra.Ioc.Payment/DependencyInjector.cs", "Infra/IoC/Infra.Ioc.Payment/"]
 RUN dotnet restore "Service/Payment/Payment.csproj"
 COPY . .
 WORKDIR "/src/Service/Payment"

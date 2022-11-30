@@ -1,13 +1,4 @@
-using Application.Order;
-using Application.Order.AutoMapper;
-using Domain.Order;
-using Domain.Order.Command;
-using Infra.Order;
-using Infra.Order.Context;
-using MediatR;
-using MessageBroker;
-using RabbitMQ.Client;
-using Steeltoe.Discovery.Client;
+using Infra.Ioc.Order;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,20 +8,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDiscoveryClient(builder.Configuration);
-
-builder.Services.AddScoped<IMessageBroker, MessageBroker.MessageBroker>(x =>
-{
-    var channel = MessageBrokerConfig.ChannelConfig();
-    channel.ExchangeDeclare(QueueExchange.CreateProductExchange, ExchangeType.Fanout);
-    return new MessageBroker.MessageBroker(channel);
-});
-
-builder.Services.AddScoped<IOrderApplication, OrderApplication>();
-builder.Services.AddScoped(x => new OrderContext());
-builder.Services.AddScoped<IOrderRepository, OrderRepository>();
-builder.Services.AddAutoMapper(typeof(OrderAutoMapperConfig));
-builder.Services.AddMediatR(typeof(OrderCommandHandler));
+builder.Services.AddOrderServices(builder.Configuration);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

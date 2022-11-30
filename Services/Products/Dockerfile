@@ -12,6 +12,8 @@ COPY ["Domain/Products/Domain.Products.csproj", "Domain/Products/"]
 COPY ["Application/Products/Application.Products.csproj", "Application/Products/"]
 COPY ["MessageBroker/MessageBroker.csproj", "MessageBroker/"]
 COPY ["Infra/Products/Infra.Products.csproj", "Infra/Products/"]
+COPY ["Infra/IoC/Infra.Ioc.Products/Infra.Ioc.Products.csproj", "Infra/IoC/Infra.Ioc.Products/"]
+COPY ["Infra/IoC/Infra.Ioc.Products/DependencyInjector.cs", "Infra/IoC/Infra.Ioc.Products/"]
 RUN dotnet restore "Service/Products/Products.csproj"
 COPY . .
 WORKDIR "/src/Service/Products"

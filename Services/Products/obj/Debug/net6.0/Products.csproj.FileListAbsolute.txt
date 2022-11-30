@@ -40,7 +40,6 @@ C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\Steeltoe.Conne
 C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\Steeltoe.Connector.ConnectorBase.dll
 C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\Steeltoe.Discovery.Abstractions.dll
 C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\Steeltoe.Discovery.ClientBase.dll
-C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\Steeltoe.Discovery.Eureka.dll
 C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\Steeltoe.Extensions.Configuration.Abstractions.dll
 C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -51,8 +50,10 @@ C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\System.Text.Js
 C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\Application.Products.dll
 C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\Domain.Products.dll
+C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\Infra.Ioc.Products.dll
 C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\Infra.Products.dll
 C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\MessageBroker.dll
+C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\Infra.Ioc.Products.pdb
 C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\Application.Products.pdb
 C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\Domain.Products.pdb
 C:\Users\ricar\Documents\Sagas\Services\Products\bin\Debug\net6.0\Infra.Products.pdb

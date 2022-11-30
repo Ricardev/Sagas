@@ -8,17 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
-    <PackageReference Include="Steeltoe.Discovery.Eureka" Version="3.2.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Application\Products\Application.Products.csproj" />
-    <ProjectReference Include="..\..\Domain\Products\Domain.Products.csproj" />
-    <ProjectReference Include="..\..\Infra\Products\Infra.Products.csproj" />
-    <ProjectReference Include="..\..\MessageBroker\MessageBroker.csproj" />
+    <ProjectReference Include="..\..\Infra\IoC\Infra.Ioc.Products\Infra.Ioc.Products.csproj" />
   </ItemGroup>
-
+  
 </Project>

@@ -183,9 +183,9 @@
               "target": "Package",
               "version": "[10.0.1, )"
             },
-            "Steeltoe.Discovery.ClientBase": {
+            "Steeltoe.Discovery.Eureka": {
               "target": "Package",
-              "version": "[3.1.2, )"
+              "version": "[3.2.1, )"
             }
           },
           "imports": [
@@ -370,8 +370,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\ricar\\Documents\\Sagas\\Infra\\IoC\\Infra.Ioc.Order\\Infra.Ioc.Order.csproj": {
-                "projectPath": "C:\\Users\\ricar\\Documents\\Sagas\\Infra\\IoC\\Infra.Ioc.Order\\Infra.Ioc.Order.csproj"
+              "C:\\Users\\ricar\\Documents\\Sagas\\Infra\\IoC\\Infra.IoC.Order\\Infra.Ioc.Order.csproj": {
+                "projectPath": "C:\\Users\\ricar\\Documents\\Sagas\\Infra\\IoC\\Infra.IoC.Order\\Infra.Ioc.Order.csproj"
               }
             }
           }

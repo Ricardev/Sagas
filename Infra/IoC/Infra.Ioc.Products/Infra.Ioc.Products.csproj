@@ -23,7 +23,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
-    <PackageReference Include="Steeltoe.Discovery.ClientBase" Version="3.1.2" />
+    <PackageReference Include="Steeltoe.Discovery.Eureka" Version="3.2.1" />
   </ItemGroup>
 
 </Project>

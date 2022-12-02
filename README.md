@@ -1,5 +1,7 @@
 # Sagas
 
+Link do Artigo que explica as configurações do projeto: https://medium.com/@ricardo.silva_73086/sagas-architecture-net-d7d124d8581a
+
 Principais features, frameworks e serviços utilizados nesse projeto:
   - Sagas Choreography Architecture
   - Arquitetura em Camadas
